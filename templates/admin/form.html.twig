@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+{% endblock %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block body %}
+    <div class="container">
+        {% if update is defined %}
+            <h1>Modification des articles</h1>
+            {% form_theme formUpdate 'bootstrap_5_layout.html.twig' %}
+            {{ form_start(formUpdate) }}
+            {{ form_widget(formUpdate) }}
+            <button type="submit" class="btn btn-primary">Modifier</button>
+            {{ form_end(formUpdate) }}
+
+        {% else %}
+            <h1>Insertion des articles</h1>
+            {% form_theme form 'bootstrap_5_layout.html.twig' %}
+            {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <button type="submit" class="btn btn-primary">Enregistrer</button>
+            {{ form_end(form) }}
+
+        {% endif %}
+
+    </div>
+
+{% endblock %}

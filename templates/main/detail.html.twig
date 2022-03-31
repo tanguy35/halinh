@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block title %} {{ article.titre }} | {{ parent() }} {% endblock %}
+
+
+
+{% block body %}
+
+    <div class="container">
+
+
+        <h2>{{article.titre}}</h2>
+        <p class="date">Ecrit le {{ article.published | date("d/m/Y") }} à {{ article.published | date("H:i") }}  </p>
+        <p>Catégorie : {{ article.categories.nom |capitalize }}</p>
+
+
+        <img src="{{asset("img/"~article.poster)}}" alt="{{ article.titre |capitalize }}" class="card-img-top">
+
+        <h2>{{article.titre}}</h2>
+        <p>{{article.content | raw }}</p>
+
+        <h2>Commentaires</h2>
+        {% for commentaire in article.commentaires %}
+            <p><b>Commentaire écrit par {{ commentaire.pseudo }}</b></p>
+            <p id="justify">{{ commentaire.contenu }}</p>
+
+        {% endfor %}
+
+        <h2> Ajouter un commentaire</h2>
+        <p class="mb-3">{{ form(formComment) }}</p>
+
+    </div>
+
+
+{% endblock %}

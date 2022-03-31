@@ -4,7 +4,7 @@
     "minimum-stability": "stable",
     "prefer-stable": true,
     "require": {
-        "php": ">=7.2.5",
+        "php": ">=7.4",
         "ext-ctype": "*",
         "ext-iconv": "*",
         "composer/package-versions-deprecated": "1.11.99.4",
@@ -12,6 +12,7 @@
         "doctrine/doctrine-bundle": "^2.5",
         "doctrine/doctrine-migrations-bundle": "^3.2",
         "doctrine/orm": "^2.10",
+        "friendsofsymfony/ckeditor-bundle": "^2.3",
         "phpdocumentor/reflection-docblock": "^5.3",
         "sensio/framework-extra-bundle": "^6.1",
         "symfony/asset": "5.3.*",
@@ -31,6 +32,7 @@
         "symfony/property-access": "5.3.*",
         "symfony/property-info": "5.3.*",
         "symfony/proxy-manager-bridge": "5.3.*",
+        "symfony/requirements-checker": "^2.0",
         "symfony/runtime": "5.3.*",
         "symfony/security-bundle": "5.3.*",
         "symfony/serializer": "5.3.*",
@@ -41,7 +43,9 @@
         "symfony/web-link": "5.3.*",
         "symfony/yaml": "5.3.*",
         "twig/extra-bundle": "^2.12|^3.0",
-        "twig/twig": "^2.12|^3.0"
+        "twig/string-extra": "^3.3",
+        "twig/twig": "^2.12|^3.0",
+        "vich/uploader-bundle": "^1.18"
     },
     "require-dev": {
         "phpunit/phpunit": "^9.5",
@@ -82,7 +86,10 @@
     "scripts": {
         "auto-scripts": {
             "cache:clear": "symfony-cmd",
-            "assets:install %PUBLIC_DIR%": "symfony-cmd"
+            "assets:install %PUBLIC_DIR%": "symfony-cmd",
+            "ckeditor:install": "symfony-cmd",
+            "vendor/bin/requirements-checker": "php-script",
+            "requirements-checker": "script"
         },
         "post-install-cmd": [
             "@auto-scripts"
