@@ -2,11 +2,8 @@
 
 *{
     box-sizing: border-box;
-
-
 }
 body{
-    /*background: #F4F7F6;*/
     margin: 0;
     color: #6F6F6F;
     font-family: 'Roboto', sans-serif;
@@ -45,9 +42,6 @@ h6{
 }
 
 
-/*.image-admin{*/
-/*    width: 10%;*/
-/*}*/
 
 .btn-primary {
 
@@ -65,18 +59,13 @@ h6{
 
     background-color: #9F1A06 ;
     border-color: #9F1A06 ;
-    border-radius: 5px;
 }
-
-/*.btn-success{*/
-/*    background-color: darkolivegreen ;*/
-/*    border-color: darkolivegreen ;*/
-/*    border-radius: 5px;*/
-/*}*/
 
  /*HEADER*/
 
-
+header {
+    background: #000;
+}
 header p{
     color: #fff;
 }
@@ -148,9 +137,7 @@ header p{
     background: url(../img/wallpaper.jpg) no-repeat center center;
     background-size: cover;
 }
-/*#apropos{*/
-/*    padding-top: 200px;*/
-/*}*/
+
 #bienvenue h1{
     color: #000000;
     font-size: 3.5rem;
@@ -172,121 +159,16 @@ section{
     z-index: 1;
 }
 
-section .aside1{
     
     background: fixed top 230px left 0 url(../img/ongle2.jpg) no-repeat;
 }
-section .aside2{
-    
-    background: fixed top 200px right 0 url(../img/ongle1.jpg)no-repeat;
-}
-section .cadre{
-    width: 500px;
-    height: 750px;
-    border: 1px solid #C89446;
-    position: absolute;
-    top:-25px;
-    left: 310px;
-    z-index: -2;
-}
-
-/*section .margintop1{*/
-/*    margin-top: 100px;*/
-/*}*/
-/*section .relative{*/
-/*    position: relative;*/
-/*}*/
-/*section .cadre2{*/
-/*    width: 350px;*/
-/*    height: 425px;*/
-/*    border: 1px solid #C89446;*/
-/*    position: absolute;*/
-/*    top: -25px;*/
-/*    right: 110px;*/
-/*}*/
-/*section #menu2{*/
-/*    padding: 0 130px;*/
-/*    padding-top: 100px;*/
-/*}*/
-/*section #menu2 .divider{*/
-/*    margin: auto;*/
-/*}*/
-/*section #menu2 h3{*/
-/*    font-family: 'Pinyon Script', cursive;*/
-/*    font-size: 3rem;*/
-/*    color: #C89446;*/
-/*    margin: 12px 0 0 0;*/
-/*}*/
-/*section #menu2 h4{*/
-/*    font-size: 2rem;*/
-/*    text-transform: uppercase;*/
-/*}*/
-/*section #navbar2 a{*/
-/*    color: #6F6F6F;*/
-/*    text-decoration: none;*/
-/*    font-weight: bold;*/
-/*}*/
-/*section #navbar2 a:hover{*/
-/*    text-decoration: underline #C89446;*/
-/*}*/
-/*section #navbar2 li{*/
-/*    list-style-type: none;*/
-/*}*/
-/*section .prix{*/
-/*    font-family: 'Pinyon Script', cursive;*/
-/*    font-size: 2rem;*/
-/*    color: #C89446 ;*/
-/*}*/
-
-/*section #menu3{*/
-/*    margin-top: 150px;*/
-/*    position: relative;*/
-/*    z-index:15;*/
-/*}*/
-/*section #menu4{*/
-/*    margin-top: 100px;*/
-/*    position: relative;*/
-/*    z-index: 12;*/
-/*}*/
-/*section #chef{*/
-/*    margin-top: 150px;*/
-/*}*/
-/*section #chef h4{*/
-/*    font-size: 1.5rem;*/
-/*}*/
-/*#carre{*/
-/*    width: 450px;*/
-/*    height: 450px;*/
-/*    border: 1px solid #C89446 ;*/
-/*    padding: 10px auto;*/
-/*    transform: translate(-50%, -260px) rotate(*/
-/*    45deg);*/
-/*    position:absolute;*/
-/*    bottom: 420px;*/
-/*    right: 505px;*/
-/*    z-index:-90;*/
-/*}*/
 
 
 #nom{
     color: #6F6F6F !important;
 }
 
-/*form #btnSubmit input{*/
-/*    background: #C89446 ;*/
-/*    border-radius: initial;*/
-/*    color: #fff;*/
-/*    font-weight: bold;*/
-/*    text-align: center;*/
-/*}*/
-/*form #btnSubmit input:hover{*/
-/*    background: transparent;*/
-/*    transition: 0.5s;*/
-/*}*/
-/*form .form-control:focus, form .form-select:focus {*/
-/* */
-/*    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(255, 166, 0, 0.6);*/
-/*}*/
+
 table p {
     font-family: 'Pinyon Script', cursive;
     font-size: 2.5rem;
@@ -312,7 +194,6 @@ table p {
     font-size: 1.5em ;
     cursor: pointer;
     width: 230px;
-    border-radius: 50px;
 }
 
 #ville {
@@ -348,7 +229,6 @@ footer{
     background-color: rgba(27, 25, 25, 0.979);
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/splash.png);
     background-position: right;
-    background-repeat: no-repeat;
     color: #fff;
 }
 
@@ -374,24 +254,9 @@ footer .col-md-3, footer .col-md-3{
         padding-top: 0;
     }
  
-    section #menu2{
-        padding: 0 ;
-    }
-    section .aside1, section .aside2{
-        display: none;
-    }
-    section .cadre{
-        display: none;
-    }
-    /*section #positionColonne{*/
-    /*    width: 100%;*/
-    /*    padding: 0;*/
-    /*}*/
-    /*section #positionColonne2{*/
-    /*    width: 100%;*/
-    /*    margin-top: 20px;*/
 
-    /*}*/
+}
+
     section .image img{
         border: 1px solid #C89446 ;
     }
@@ -399,40 +264,10 @@ footer .col-md-3, footer .col-md-3{
     section .cadre {
         display: none;
     }
-    /*section #menu2{*/
-    /*    margin:0;*/
-    /*}*/
-    /*section #menu3{*/
-    /*    margin-top:30px;*/
-
-    /*}*/
-    /*section #menu4{*/
-    /*    margin-top:30px;*/
-    /*}*/
-    /*section #chef{*/
-    /*    margin-top:40px;*/
-    /*}*/
-    /*section .photochef{*/
-    /*    margin-left: 130px;*/
-    /*}*/
-
-
-    /*#recipes{*/
-    /*    height:80vh;*/
-    /*    padding-top:0;*/
-    /*}*/
-
-    /*#carre{*/
-    /*    display: none;*/
-    /*}*/
-  
-}
-
-@media (max-width: 576px){
-    #apropos{
-        padding-top: 0;
+    section #apropos h3{
+        font-size: 5rem;
     }
-
+   
     section #apropos p {
         font-size: 5rem;
     }
@@ -446,83 +281,20 @@ footer .col-md-3, footer .col-md-3{
         font-size: 2.5rem;
     }
     header{
-        height: 50vh;
+        height: 48vh;
     }
-    section #menu2{
-        padding: 0 ;
-    }
+
     section .aside1, section .aside2{
         display: none;
     }
-    /*section #positionColonne{*/
-    /*    width: 100%;*/
-    /*}*/
-    /*section #positionColonne img{*/
-    /*    border: 1px solid #C89446;*/
-    /*}*/
-    /*section #positionColonne2{*/
-    /*    width: 100%;*/
-    /*    flex-wrap: wrap-reverse;*/
-    /*    margin-top: 25px;*/
-    /*    margin-bottom: 30px;*/
-    /*}*/
-    /*section #positionColonne2 .image img{*/
-    /*    margin-top: 30px;*/
-    /*    border: 1px solid #C89446;*/
-    /*}*/
-    /*section #menu2{*/
-    /*    margin-top: 20px;*/
-    /*}*/
-    section .cadre{
-        display: none;
-    }
-    /*section .positionReverse{*/
-    /*    flex-direction: row-reverse;*/
-    /*   */
-    /*}*/
     nav {
         flex-wrap: wrap;
     }
-    /*section .positionReverse .text-end{*/
-    /*    text-align: justify !important;*/
-    /*    margin-left: 15px;*/
-    /*}*/
-    /*section .prix{*/
-    /*    font-size: 3.2rem;*/
-    /*}*/
-    /*section #menu3{*/
-    /*    margin-top: 50px;*/
-    /*    padding-bottom: 0px;*/
-    /*}*/
-    /*section #menu4{*/
-    /*    margin-top: 0;*/
-
-    /*}*/
-    /*section #chef{*/
-    /*    margin-top: 30px;*/
-    /*    padding-bottom: 30px;*/
-    /*    flex-wrap: wrap-reverse;*/
-    /*}*/
-    /*section #chef img{*/
-    /*    border: 1px solid #C89446;*/
-    /*    margin-left: 30px;*/
-    /*    margin-bottom: 30px;*/
-    /*}*/
+   
 
     #back-to-top i {
         display: none;
     }
-
-  
-    /*#recipes{*/
-    /*    height: 100vh;*/
-    /*}*/
-    /*#recipes .col-12{*/
-    /*    width: 100%;*/
-    /*}*/
-    /*#carre{*/
-    /*    display: none;*/
-    /*}*/
 
 }
 
