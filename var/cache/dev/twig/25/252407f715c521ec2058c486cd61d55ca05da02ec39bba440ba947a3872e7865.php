@@ -111,7 +111,7 @@ class __TwigTemplate_2cc5c12bd2bfe44ef6534dec396362ba2bd65896c3abe38bffd08157006
         // line 10
         echo "
     <div class=\"container\">
-        <h1 class=\"mt-3\">Admin dashboard</h1>
+        <h1 class=\"mt-3\">Backoffice dashboard</h1>
 
         <a href=\"";
         // line 14
@@ -221,7 +221,7 @@ class __TwigTemplate_2cc5c12bd2bfe44ef6534dec396362ba2bd65896c3abe38bffd08157006
 {% block body %}
 
     <div class=\"container\">
-        <h1 class=\"mt-3\">Admin dashboard</h1>
+        <h1 class=\"mt-3\">Backoffice dashboard</h1>
 
         <a href=\"{{ path('admin_new') }}\" class=\"btn btn-primary\"><i class=\"fas fa-2x fa-arrow-circle-down\"></i></a>
         <a href=\"{{ path('categorie_new') }}\" class=\"btn btn-primary\"><i class=\"fas fa-2x fa-list-alt \"></i></a>

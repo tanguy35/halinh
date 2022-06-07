@@ -1,8 +1,6 @@
 {% extends 'base.html.twig' %}
 
-
-
-{% block title %}{% endblock %}
+{% block title %}{{ parent() }}{% endblock %}
 
 {% block body %}
     <section class="container-fluid " id="bienvenue">
@@ -15,31 +13,32 @@
             </div>
 
         </div>
+        
     </section>
 
 
     <div class="container-fluid">
         <!-- GRANDE SECTION -->
-        <section class="row col-12  align-items-center justify-content-center" id="positionColonne">
+        <section class="row col-12  align-items-center justify-content-center" id="presentation">
 
             <div class="cadre" ></div>
-            <div class="col-12 col-sm-6 col-md-4 image" data-aos="zoom-in" data-aos-duration="2000">
-                <img src="{{ asset("img/magasin.jpg") }}" alt="photo maquillage">
+            <div class="col-12 col-md-6 col-lg-4 image" data-aos="zoom-in" data-aos-duration="2000">
+                <img src="{{ asset("img/logo4.png") }}" alt="photo maquillage">
             </div>
 
-            <div class="col-12 col-sm-6 col-md-4 discover" id="propos">
+            <div class="col-12 col-md-6 col-lg-4 discover" id="propos">
 
-                <h3 >A propos</h3>
-                <h4>Notre experience</h4>
-                <p >Poussez la porte de l’institut, c’est arriver dans un lieu sympathique à l’ambiance chaleureuse. Vous êtes accueillie par une équipe souriante et dynamique à l’image du salon. Passionnées par leur métier, ces professionnelles sont aux petits soins pour répondre à vos souhaits.
+                {# <h2 class="text-center">A propos</h2> #}
+                <h3 class=" text-center text-white">Notre experience</h3>
+                <p >Pousser la porte de l’institut, c’est arriver dans un lieu sympathique à l’ambiance chaleureuse. Vous êtes accueillie par une équipe souriante et dynamique à l’image du salon. Passionnées par leur métier et expérimentées de nombreuses années, ces professionnelles sont aux petits soins pour répondre à vos souhaits.
 
-                    Ainsi laissez-vous tenter par une manucure ou une beauté des pieds pour un moment de détente intense. Le visage et le corps ne sont pas en reste. Que ce soit pour un soin qui sublime votre visage ou pour une épilation, tout est fait pour prendre soin de vous ! De même pour une beauté complète, optez pour les forfaits sélectionnés par votre équipe au savoir-faire indiscutable. Tous nos produits de grande marque sont signés OPI pour préserver votre beauté naturelle.</p>
+                Ainsi laissez-vous tenter par une manucure ou une beauté des pieds pour un moment de détente intense. Le visage et le corps ne sont pas en reste. Que ce soit pour un soin qui sublime votre visage ou vos mains, tout est fait pour prendre soin de vous !</p>
 
             </div>
 
         </section> <!--.row-->
 
-        <section class="row col-12">
+        <section class="row col-12" id="prestation">
 
             <div class="col-md-2 aside1 img-fluid" ></div> <!--ASIDE GAUCHE-->
 
@@ -47,7 +46,7 @@
 
                 <br><br><br>
 
-                <h2 class="text-center" id="prestation">PRESTATIONS</h2>
+                <h2 class="text-center">PRESTATION</h2>
 
                 <br><br><br>
 
@@ -161,7 +160,7 @@
         </section> <!--row-->
 
         <section class="row" id="blog">
-            <h2 class="text-center">Blog</h2>
+            <h2 class="text-center">Blog Halinh</h2>
 
             {% for article in articles %}
 
@@ -189,7 +188,7 @@
 
         </section><!--Row Blog-->
 
-        <section id="meteo" class="mt-3 mb-3">
+        <section id="meteo" class="pt-3 pb-3">
 
             <div class="container">
 
@@ -198,7 +197,7 @@
 
                     <div class="col-12 text-center">
                         <span id="ville">Paris</span>
-
+                        
                         <div id="temperature">
                             <span id="temperature-indice">
                             xx.x
@@ -218,7 +217,7 @@
 
     <div class="container-fluid d-flex align-items center col-12 text-center" id="googlemap">
 
-        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d42619.24570080961!2d-1.7234738316586826!3d48.11596753403908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480ede2fa7d69085%3A0x40ca5cd36e4ab30!2sRennes!5e0!3m2!1sfr!2sfr!4v1626178568480!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2663.905058887641!2d-1.6834691841660232!3d48.11206716091603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480ede33ef53d35b%3A0x7efd99f56e690444!2s2%20Rue%20de%20Clisson%2C%2035000%20Rennes!5e0!3m2!1sfr!2sfr!4v1649253107204!5m2!1sfr!2sfr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 
     </div>
 

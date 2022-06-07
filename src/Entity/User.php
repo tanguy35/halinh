@@ -26,11 +26,14 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Regex("/^\w+/", message = "Caractères non conformes" )
      */
     private $username;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank(message="Veuillez saisir une valeur.")
+     * @Assert\Regex(pattern="/^(?=.*[a-zà-ÿ])(?=.*[A-ZÀ-Ÿ])(?=.*[0-9])(?=.*[^a-zà-ÿA-ZÀ-Ÿ0-9]).{6,}$/", message="Il faut au moins 6 caractères dont 1 majuscule, 1 minuscule, 1 chiffre et 1 spécial, aléatoirement");
      */
     private $password;
 
@@ -38,6 +41,8 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\Regex("/^\w+/", message = "Caractères non conformes" ))
+     * @Assert\Email( message = "Email '{{ value }}' non valide.")
      */
     private $email;
 

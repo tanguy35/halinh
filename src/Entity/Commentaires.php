@@ -20,16 +20,24 @@ class Commentaires
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Regex("/^\w+/", message = "Caractères non conformes" )
      */
     private $pseudo;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Assert\NotBlank
+     * @Assert\Email(
+     *     message = "Email '{{ value }}' non valide."
+     * )
      */
     private $email;
 
     /**
      * @ORM\Column(type="text")
+     * @Assert\NotBlank
+     * @Assert\Regex("/^\w+/", message = "Caractères non conformes" ))
      * @Assert\Length(min=20,max=500, minMessage="Le commentaire doit avoir au moins 20 caractères", maxMessage="Max 500 caractères")
      */
     private $contenu;
@@ -39,6 +47,11 @@ class Commentaires
      * @ORM\JoinColumn(name="article_id",referencedColumnName="id", nullable=true, onDelete="CASCADE")
      */
     private $articles;
+
+    /**
+     * @ORM\Column(type="boolean")
+     */
+    private $rgpd;
 
     public function getId(): ?int
     {
@@ -89,6 +102,18 @@ class Commentaires
     public function setArticles(?Articles $articles): self
     {
         $this->articles = $articles;
+
+        return $this;
+    }
+
+    public function getRgpd(): ?bool
+    {
+        return $this->rgpd;
+    }
+
+    public function setRgpd(bool $rgpd): self
+    {
+        $this->rgpd = $rgpd;
 
         return $this;
     }

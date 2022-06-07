@@ -18,7 +18,7 @@ class LockConfig
     private $resources;
     
     /**
-     * @default false
+     * @default true
      * @param ParamConfigurator|bool $value
      * @return $this
      */

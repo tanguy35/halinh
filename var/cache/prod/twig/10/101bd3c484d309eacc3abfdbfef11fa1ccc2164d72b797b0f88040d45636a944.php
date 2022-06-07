@@ -25,6 +25,7 @@ class __TwigTemplate_33d0d25666014fc81974518fca623a517384661ce593ca2c46decfcee98
         $this->source = $this->getSourceContext();
 
         $this->blocks = [
+            'title' => [$this, 'block_title'],
             'body' => [$this, 'block_body'],
         ];
     }
@@ -40,6 +41,15 @@ class __TwigTemplate_33d0d25666014fc81974518fca623a517384661ce593ca2c46decfcee98
         $macros = $this->macros;
         $this->parent = $this->loadTemplate("base.html.twig", "main/mentions.html.twig", 1);
         $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 2
+    public function block_title($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        echo "  ";
+        $this->displayParentBlock("title", $context, $blocks);
+        echo " ";
     }
 
     // line 4
@@ -171,7 +181,7 @@ class __TwigTemplate_33d0d25666014fc81974518fca623a517384661ce593ca2c46decfcee98
 
     public function getDebugInfo()
     {
-        return array (  50 => 5,  46 => 4,  35 => 1,);
+        return array (  60 => 5,  56 => 4,  47 => 2,  36 => 1,);
     }
 
     public function getSourceContext()

@@ -108,7 +108,7 @@
     <parameter key="kernel.secret">%env(APP_SECRET)%</parameter>
     <parameter key="kernel.http_method_override">false</parameter>
     <parameter key="kernel.trusted_hosts" type="collection"/>
-    <parameter key="kernel.default_locale">en</parameter>
+    <parameter key="kernel.default_locale">fr</parameter>
     <parameter key="kernel.error_controller">error_controller</parameter>
     <parameter key="debug.file_link_format">null</parameter>
     <parameter key="cache.prefix.seed">_D:\projet5.App_KernelDevDebugContainer</parameter>
@@ -447,7 +447,7 @@
       <tag name="container.hot_path"/>
       <tag name="container.hot_path"/>
       <argument type="service" id="request_stack"/>
-      <argument>en</argument>
+      <argument>fr</argument>
       <argument type="service" id="router.default" on-invalid="ignore"/>
     </service>
     <service id="validate_request_listener" class="Symfony\Component\HttpKernel\EventListener\ValidateRequestListener">
@@ -546,6 +546,7 @@
         <argument key="debug.validator" type="service" id="debug.validator" on-invalid="ignore_uninitialized"/>
         <argument key="debug.stopwatch" type="service" id="debug.stopwatch" on-invalid="ignore_uninitialized"/>
         <argument key="debug.event_dispatcher" type="service" id="debug.event_dispatcher" on-invalid="ignore_uninitialized"/>
+        <argument key="cache.rate_limiter" type="service" id="cache.rate_limiter" on-invalid="ignore_uninitialized"/>
         <argument key="monolog.handler.main" type="service" id="monolog.handler.main" on-invalid="ignore_uninitialized"/>
         <argument key="monolog.handler.console" type="service" id="monolog.handler.console" on-invalid="ignore_uninitialized"/>
         <argument key="doctrine" type="service" id="doctrine" on-invalid="ignore_uninitialized"/>
@@ -594,6 +595,9 @@
         <argument key="debug.event_dispatcher" type="collection">
           <argument>reset</argument>
         </argument>
+        <argument key="cache.rate_limiter" type="collection">
+          <argument>reset</argument>
+        </argument>
         <argument key="monolog.handler.main" type="collection">
           <argument>reset</argument>
         </argument>
@@ -639,7 +643,7 @@
     </service>
     <service id="slugger" class="Symfony\Component\String\Slugger\AsciiSlugger">
       <tag name="kernel.locale_aware"/>
-      <argument>en</argument>
+      <argument>fr</argument>
     </service>
     <service id="container.getenv" class="Closure">
       <tag name="routing.expression_language_function" function="env"/>
@@ -783,6 +787,7 @@
         <argument>cache.annotations</argument>
         <argument>cache.property_info</argument>
         <argument>cache.validator_expression_language</argument>
+        <argument>cache.rate_limiter</argument>
         <argument>cache.doctrine.orm.default.result</argument>
         <argument>cache.doctrine.orm.default.query</argument>
         <argument>cache.security_expression_language</argument>
@@ -922,7 +927,7 @@
       <argument type="service" id="translation.writer"/>
       <argument type="service" id="translation.reader"/>
       <argument type="service" id="translation.extractor"/>
-      <argument>en</argument>
+      <argument>fr</argument>
       <argument>D:\projet5/translations</argument>
       <argument>D:\projet5/templates</argument>
       <argument type="collection">
@@ -958,7 +963,7 @@
       <argument type="service" id="translation.provider_collection"/>
       <argument type="service" id="translation.writer"/>
       <argument type="service" id="translation.reader"/>
-      <argument>en</argument>
+      <argument>fr</argument>
       <argument type="collection"/>
       <argument type="collection"/>
       <call method="setName">
@@ -1261,6 +1266,7 @@
       <tag name="cache.pool.clearer"/>
       <argument type="collection">
         <argument key="cache.app" type="service" id="cache.app" on-invalid="ignore_uninitialized"/>
+        <argument key="cache.rate_limiter" type="service" id="cache.rate_limiter" on-invalid="ignore_uninitialized"/>
       </argument>
     </service>
     <service id="cache.system_clearer" class="Symfony\Component\HttpKernel\CacheClearer\Psr6CacheClearer" public="true">
@@ -1286,6 +1292,7 @@
         <argument key="cache.annotations" type="service" id="cache.annotations" on-invalid="ignore_uninitialized"/>
         <argument key="cache.property_info" type="service" id="cache.property_info" on-invalid="ignore_uninitialized"/>
         <argument key="cache.validator_expression_language" type="service" id="cache.validator_expression_language" on-invalid="ignore_uninitialized"/>
+        <argument key="cache.rate_limiter" type="service" id="cache.rate_limiter" on-invalid="ignore_uninitialized"/>
         <argument key="cache.doctrine.orm.default.result" type="service" id="cache.doctrine.orm.default.result" on-invalid="ignore_uninitialized"/>
         <argument key="cache.doctrine.orm.default.query" type="service" id="cache.doctrine.orm.default.query" on-invalid="ignore_uninitialized"/>
         <argument key="cache.security_expression_language" type="service" id="cache.security_expression_language" on-invalid="ignore_uninitialized"/>
@@ -1809,7 +1816,7 @@
       <tag name="kernel.locale_aware"/>
       <argument type="service" id=".service_locator.O24_MAy"/>
       <argument type="service" id="translator.formatter.default"/>
-      <argument>en</argument>
+      <argument>fr</argument>
       <argument type="collection">
         <argument key="translation.loader.php" type="collection">
           <argument>php</argument>
@@ -2194,7 +2201,7 @@
       </call>
       <call method="setFallbackLocales">
         <argument type="collection">
-          <argument>en</argument>
+          <argument>fr</argument>
         </argument>
       </call>
     </service>
@@ -2567,6 +2574,10 @@
       <call method="addInstance">
         <argument>cache.validator_expression_language</argument>
         <argument type="service" id="cache.validator_expression_language"/>
+      </call>
+      <call method="addInstance">
+        <argument>cache.rate_limiter</argument>
+        <argument type="service" id="cache.rate_limiter"/>
       </call>
       <call method="addInstance">
         <argument>cache.doctrine.orm.default.result</argument>
@@ -3238,7 +3249,7 @@
       <argument type="service" id="router.request_context" on-invalid="ignore"/>
       <argument type="service" id="parameter_bag" on-invalid="ignore"/>
       <argument type="service" id="monolog.logger.router" on-invalid="ignore"/>
-      <argument>en</argument>
+      <argument>fr</argument>
       <call method="setConfigCacheFactory">
         <argument type="service" id="config_cache_factory"/>
       </call>
@@ -3558,6 +3569,43 @@
     <service id="property_info.php_doc_extractor" class="Symfony\Component\PropertyInfo\Extractor\PhpDocExtractor">
       <tag name="property_info.description_extractor" priority="-1000"/>
       <tag name="property_info.type_extractor" priority="-1001"/>
+    </service>
+    <service id="lock.store.combined.abstract" class="Symfony\Component\Lock\Store\CombinedStore" abstract="true">
+      <argument type="abstract">List of stores</argument>
+      <argument type="service" id="lock.strategy.majority"/>
+    </service>
+    <service id="lock.strategy.majority" class="Symfony\Component\Lock\Strategy\ConsensusStrategy"/>
+    <service id="lock.factory.abstract" class="Symfony\Component\Lock\LockFactory" abstract="true">
+      <tag name="monolog.logger" channel="lock"/>
+      <argument type="abstract">Store</argument>
+      <call method="setLogger">
+        <argument type="service" id="monolog.logger.lock" on-invalid="ignore"/>
+      </call>
+    </service>
+    <service id=".lock.default.store.TTEh_gT" class="Symfony\Component\Lock\PersistingStoreInterface">
+      <argument>%env(LOCK_DSN)%</argument>
+      <factory class="Symfony\Component\Lock\Store\StoreFactory" method="createStore"/>
+    </service>
+    <service id="lock.default.factory" class="Symfony\Component\Lock\LockFactory">
+      <argument type="service" id=".lock.default.store.TTEh_gT"/>
+      <call method="setLogger">
+        <argument type="service" id="monolog.logger.lock" on-invalid="ignore"/>
+      </call>
+    </service>
+    <service id="lock.default" class="Symfony\Component\Lock\Lock">
+      <argument>default</argument>
+      <factory service="lock.default.factory" method="createLock"/>
+      <deprecated package="symfony/framework-bundle" version="5.2">The "%service_id%" service is deprecated, use "lock.default.factory" instead.</deprecated>
+    </service>
+    <service id="cache.rate_limiter" class="Symfony\Component\Cache\Adapter\TraceableAdapter" public="true">
+      <tag name="cache.pool"/>
+      <tag name="kernel.reset" method="reset"/>
+      <argument type="service" id="cache.rate_limiter.recorder_inner"/>
+    </service>
+    <service id="limiter" class="Symfony\Component\RateLimiter\RateLimiterFactory" abstract="true">
+      <argument type="abstract">config</argument>
+      <argument type="abstract">storage</argument>
+      <argument>null</argument>
     </service>
     <service id="web_link.add_link_header_listener" class="Symfony\Component\WebLink\EventListener\AddLinkHeaderListener">
       <tag name="kernel.event_subscriber"/>
@@ -4700,6 +4748,12 @@
         <argument>doctrine:mapping:import</argument>
       </call>
     </service>
+    <service id="Doctrine\Bundle\DoctrineBundle\Controller\ProfilerController" class="Doctrine\Bundle\DoctrineBundle\Controller\ProfilerController" public="true">
+      <tag name="controller.service_arguments"/>
+      <argument type="service" id="twig"/>
+      <argument type="service" id="doctrine"/>
+      <argument type="service" id="profiler"/>
+    </service>
     <service id="doctrine.orm.default_configuration" class="Doctrine\ORM\Configuration">
       <tag name="doctrine.orm.configuration"/>
       <call method="setEntityNamespaces">
@@ -5525,6 +5579,7 @@
       <argument>null</argument>
       <argument>null</argument>
       <argument type="collection">
+        <argument>login_throttling</argument>
         <argument>form_login</argument>
       </argument>
       <argument>null</argument>
@@ -5564,6 +5619,22 @@
         <argument type="collection">
           <argument type="service_closure" id="security.logout.listener.session.main"/>
           <argument>onLogout</argument>
+        </argument>
+        <argument>0</argument>
+      </call>
+      <call method="addListener">
+        <argument>Symfony\Component\Security\Http\Event\CheckPassportEvent</argument>
+        <argument type="collection">
+          <argument type="service_closure" id="security.listener.login_throttling.main"/>
+          <argument>checkPassport</argument>
+        </argument>
+        <argument>2080</argument>
+      </call>
+      <call method="addListener">
+        <argument>Symfony\Component\Security\Http\Event\LoginSuccessEvent</argument>
+        <argument type="collection">
+          <argument type="service_closure" id="security.listener.login_throttling.main"/>
+          <argument>onSuccessfulLogin</argument>
         </argument>
         <argument>0</argument>
       </call>
@@ -5663,12 +5734,48 @@
     <service id="security.logout.listener.session.main" class="Symfony\Component\Security\Http\EventListener\SessionLogoutListener">
       <tag name="kernel.event_subscriber" dispatcher="security.event_dispatcher.main"/>
     </service>
+    <service id="limiter._login_local_main" class="Symfony\Component\RateLimiter\RateLimiterFactory">
+      <argument type="collection">
+        <argument key="policy">fixed_window</argument>
+        <argument key="limit">2</argument>
+        <argument key="interval">1 minute</argument>
+        <argument key="id">_login_local_main</argument>
+      </argument>
+      <argument type="service" id="limiter.storage._login_local_main"/>
+      <argument>null</argument>
+    </service>
+    <service id="limiter.storage._login_local_main" class="Symfony\Component\RateLimiter\Storage\CacheStorage">
+      <argument type="service" id="cache.rate_limiter"/>
+    </service>
+    <service id="limiter._login_global_main" class="Symfony\Component\RateLimiter\RateLimiterFactory">
+      <argument type="collection">
+        <argument key="policy">fixed_window</argument>
+        <argument key="limit">10</argument>
+        <argument key="interval">1 minute</argument>
+        <argument key="id">_login_global_main</argument>
+      </argument>
+      <argument type="service" id="limiter.storage._login_global_main"/>
+      <argument>null</argument>
+    </service>
+    <service id="limiter.storage._login_global_main" class="Symfony\Component\RateLimiter\Storage\CacheStorage">
+      <argument type="service" id="cache.rate_limiter"/>
+    </service>
+    <service id="security.login_throttling.main.limiter" class="Symfony\Component\Security\Http\RateLimiter\DefaultLoginRateLimiter">
+      <argument type="service" id="limiter._login_global_main"/>
+      <argument type="service" id="limiter._login_local_main"/>
+    </service>
+    <service id="security.listener.login_throttling.main" class="Symfony\Component\Security\Http\EventListener\LoginThrottlingListener">
+      <tag name="kernel.event_subscriber" dispatcher="security.event_dispatcher.main"/>
+      <argument type="service" id="request_stack"/>
+      <argument type="service" id="security.login_throttling.main.limiter"/>
+    </service>
     <service id="security.authenticator.form_login.main" class="Symfony\Component\Security\Http\Authenticator\FormLoginAuthenticator">
       <argument type="service" id="security.http_utils"/>
       <argument type="service" id="security.user.provider.concrete.app_user_provider"/>
       <argument type="service" id="security.authentication.success_handler.main.form_login"/>
       <argument type="service" id="security.authentication.failure_handler.main.form_login"/>
       <argument type="collection">
+        <argument key="enable_csrf">true</argument>
         <argument key="login_path">login</argument>
         <argument key="check_path">login</argument>
         <argument key="use_forward">false</argument>
@@ -5677,7 +5784,6 @@
         <argument key="password_parameter">_password</argument>
         <argument key="csrf_parameter">_csrf_token</argument>
         <argument key="csrf_token_id">authenticate</argument>
-        <argument key="enable_csrf">false</argument>
         <argument key="post_only">true</argument>
       </argument>
     </service>
@@ -6720,6 +6826,19 @@
       </call>
       <configurator class="Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\AddDebugLogProcessorPass" method="configureLogger"/>
     </service>
+    <service id="monolog.logger.lock" class="Symfony\Bridge\Monolog\Logger">
+      <argument>lock</argument>
+      <call method="pushProcessor">
+        <argument type="service" id="debug.log_processor"/>
+      </call>
+      <call method="pushHandler">
+        <argument type="service" id="monolog.handler.console"/>
+      </call>
+      <call method="pushHandler">
+        <argument type="service" id="monolog.handler.main"/>
+      </call>
+      <configurator class="Symfony\Bundle\FrameworkBundle\DependencyInjection\Compiler\AddDebugLogProcessorPass" method="configureLogger"/>
+    </service>
     <service id="monolog.logger.debug" class="Symfony\Bridge\Monolog\Logger">
       <argument>debug</argument>
       <call method="pushProcessor">
@@ -7744,6 +7863,15 @@
       <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
       <factory class="Symfony\Component\Cache\Adapter\AbstractAdapter" method="createSystemCache"/>
     </service>
+    <service id="cache.rate_limiter.recorder_inner" class="Symfony\Component\Cache\Adapter\FilesystemAdapter">
+      <argument>67YOAh3dPA</argument>
+      <argument>0</argument>
+      <argument>D:\projet5\var\cache\dev/pools</argument>
+      <argument type="service" id="cache.default_marshaller" on-invalid="ignore"/>
+      <call method="setLogger">
+        <argument type="service" id="monolog.logger.cache" on-invalid="ignore"/>
+      </call>
+    </service>
     <service id="cache.doctrine.orm.default.result.recorder_inner" class="Symfony\Component\Cache\Adapter\ArrayAdapter"/>
     <service id="cache.doctrine.orm.default.query.recorder_inner" class="Symfony\Component\Cache\Adapter\ArrayAdapter"/>
     <service id="cache.security_expression_language.recorder_inner" class="Symfony\Component\Cache\Adapter\AdapterInterface">
@@ -7860,6 +7988,23 @@
     <service id="Symfony\Component\PropertyInfo\PropertyInitializableExtractorInterface" alias="property_info"/>
     <service id="Symfony\Component\PropertyInfo\PropertyReadInfoExtractorInterface" alias="property_info.reflection_extractor"/>
     <service id="Symfony\Component\PropertyInfo\PropertyWriteInfoExtractorInterface" alias="property_info.reflection_extractor"/>
+    <service id="lock.default.store" alias=".lock.default.store.TTEh_gT">
+      <deprecated package="symfony/framework-bundle" version="5.2">The "%alias_id%" alias is deprecated, use "lock.default.factory" instead.</deprecated>
+    </service>
+    <service id="lock.store" alias=".lock.default.store.TTEh_gT">
+      <deprecated package="symfony/framework-bundle" version="5.2">The "%alias_id%" alias is deprecated, use "lock.factory" instead.</deprecated>
+    </service>
+    <service id="lock.factory" alias="lock.default.factory"/>
+    <service id="lock" alias="lock.default">
+      <deprecated package="symfony/framework-bundle" version="5.2">The "%alias_id%" alias is deprecated, use "lock.factory" instead.</deprecated>
+    </service>
+    <service id="Symfony\Component\Lock\PersistingStoreInterface" alias=".lock.default.store.TTEh_gT">
+      <deprecated package="symfony/framework-bundle" version="5.2">The "%alias_id%" alias is deprecated, use "Symfony\Component\Lock\LockFactory" instead.</deprecated>
+    </service>
+    <service id="Symfony\Component\Lock\LockFactory" alias="lock.default.factory"/>
+    <service id="Symfony\Component\Lock\LockInterface" alias="lock.default">
+      <deprecated package="symfony/framework-bundle" version="5.2">The "%alias_id%" alias is deprecated, use "Symfony\Component\Lock\LockFactory" instead.</deprecated>
+    </service>
     <service id="Symfony\Component\Mime\MimeTypesInterface" alias="mime_types"/>
     <service id="Symfony\Component\Mime\MimeTypeGuesserInterface" alias="mime_types"/>
     <service id="sensio_framework_extra.converter.doctrine.orm.expression_language" alias="sensio_framework_extra.converter.doctrine.orm.expression_language.default"/>
@@ -7913,6 +8058,8 @@
     </service>
     <service id="security.firewall" alias="debug.security.firewall"/>
     <service id="security.authentication.session_strategy.main" alias="security.authentication.session_strategy"/>
+    <service id="Symfony\Component\RateLimiter\RateLimiterFactory $loginLocalMainLimiter" alias="limiter._login_local_main"/>
+    <service id="Symfony\Component\RateLimiter\RateLimiterFactory $loginGlobalMainLimiter" alias="limiter._login_global_main"/>
     <service id="security.user_checker.main" alias="security.user_checker"/>
     <service id="security.firewall.context_locator" alias=".service_locator.zJyh7qS"/>
     <service id="Symfony\Component\Security\Core\User\UserCheckerInterface" alias="security.user_checker"/>
@@ -7952,6 +8099,7 @@
     <service id="Psr\Log\LoggerInterface $phpLogger" alias="monolog.logger.php"/>
     <service id="Psr\Log\LoggerInterface $eventLogger" alias="monolog.logger.event"/>
     <service id="Psr\Log\LoggerInterface $routerLogger" alias="monolog.logger.router"/>
+    <service id="Psr\Log\LoggerInterface $lockLogger" alias="monolog.logger.lock"/>
     <service id="Psr\Log\LoggerInterface $debugLogger" alias="monolog.logger.debug"/>
     <service id="Psr\Log\LoggerInterface $doctrineLogger" alias="monolog.logger.doctrine"/>
     <service id="Psr\Log\LoggerInterface $securityLogger" alias="monolog.logger.security"/>

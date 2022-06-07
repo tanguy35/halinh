@@ -21,6 +21,9 @@ p {
 .fa-angle-double-up{
     color: #C89446;
 }
+#dashboard {
+    background: #BAAA9D ;
+}
 
 h3{
     color: #C89446 ;
@@ -28,29 +31,29 @@ h3{
     font-size: 2.5rem;
 }
 h4{
-    color: #000;
+    color: #383636;
     font-weight: bolder;
     text-transform: uppercase;
     font-size: 2rem;
 }
 h5{
-    color: #000;
+    color: #383636;
     font-weight: bold;
 }
 h6{
-    color: #C89446 ;
+    color: #383636 ;
     font-weight: bold;
 }
 
 
 .image-admin{
-    width: 10%;
+    width: 20%;
 }
 
 .btn-primary {
 
-    background-color: #1D1D1D;
-    border-color: #03224c;
+    background-color: #383636;
+    border-color: #383636;
     border-radius: 5px;
     margin-top: 5px;
 }
@@ -69,7 +72,7 @@ h6{
 
 /*HEADER*/
 header{
-    background: #000;
+    background: #DBD1CB;
 }
 
 
@@ -84,7 +87,7 @@ header p{
 
 /* NAVBAR */
 .navbar{
-    background-color: #000000 !important;
+    background-color: #DBD1CB !important;
     letter-spacing: 5px;
 }
 
@@ -108,7 +111,7 @@ header nav a:hover{
 }
 header nav .btn{
     background: transparent;
-    color: #000;
+    /* color: #000; */
 }header nav .btn:hover{
      background: #C89446 ;
      color: #fff;
@@ -122,14 +125,14 @@ header nav li{
     list-style-type: none;
 }
 header h1{
-    color: #000;
+    /* color: #000; */
     text-transform: uppercase;
     font-weight: lighter;
     font-size: 3.8rem;
     letter-spacing: 12px;
 }
 h2, header h2{
-    color: #000;
+    /* color: #000; */
     text-transform: uppercase;
     font-weight: lighter;
     font-size: 1.6rem;
@@ -141,17 +144,20 @@ header p{
 
 #bienvenue{
     height: 90vh;
-    background: url(../img/wallpaper.jpg) no-repeat center center;
+    background: url(../img/bg2.jpeg) no-repeat center center;
     background-size: cover;
 }
 #apropos{
     padding-top: 200px;
 }
 #bienvenue h1{
-    color: #000000;
+    color: #383636;
     font-size: 3.5rem;
     letter-spacing: 5px;
 
+}
+#bienvenue h2{
+    color: #383636;
 }
 section #apropos h3{
     font-family: 'Pinyon Script', cursive;
@@ -179,7 +185,7 @@ section{
 /* METEO */
 #meteo h6 {
     font-size:2em ;
-    color: #000;
+    /* color: #000; */
 }
 
 #changer {
@@ -190,8 +196,7 @@ section{
 
 #ville {
     text-transform: uppercase;
-    font-size: 1.5em ;
-    color: #000;
+    /* color: #000; */
 }
 
 #temperature {
@@ -216,15 +221,12 @@ section{
 /* FOOTER */
 footer{
 
-    background-color: rgba(27, 25, 25, 0.979);
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(../img/splash.png);
-    background-position: right;
-    background-repeat: no-repeat;
+    background: #DBD1CB;
     color: #fff;
-    position: absolute;
+    /* position: absolute;
     bottom: 0;
     left: 0;
-    right: 0;
+    right: 0; */
 
 }
 
@@ -249,7 +251,7 @@ footer .col-md-3, footer .col-md-3{
     #apropos{
         padding-top: 0;
     }
-
+    
 }
 
 @media (max-width: 576px){
@@ -262,13 +264,14 @@ footer .col-md-3, footer .col-md-3{
     }
     #bienvenue{
         height: 50vh;
-        background: url(../img/nails_bg.jpg) no-repeat center center;
+        background: url(../img/bg2.jpeg) no-repeat center center;
         background-size: cover;
     }
     #bienvenue h1 {
-        color: #000000;
+        color: #383636;
         font-size: 2.5rem;
     }
+    
     header{
         height: 50vh;
         background: #DBD1CB;
@@ -285,6 +288,7 @@ footer .col-md-3, footer .col-md-3{
     footer{
         background: #DBD1CB;
         color: #fff;
+        position: relative;
 
     }
 

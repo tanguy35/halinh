@@ -55,7 +55,7 @@ class __TwigTemplate_ecef8f69199f649990fef7048a34c04926a5de44f9ce5986445bfc396a2
 
     }
 
-    // line 5
+    // line 3
     public function block_title($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -65,6 +65,7 @@ class __TwigTemplate_ecef8f69199f649990fef7048a34c04926a5de44f9ce5986445bfc396a2
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
 
+        $this->displayParentBlock("title", $context, $blocks);
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
 
@@ -73,7 +74,7 @@ class __TwigTemplate_ecef8f69199f649990fef7048a34c04926a5de44f9ce5986445bfc396a2
 
     }
 
-    // line 7
+    // line 5
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -83,7 +84,7 @@ class __TwigTemplate_ecef8f69199f649990fef7048a34c04926a5de44f9ce5986445bfc396a2
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
-        // line 8
+        // line 6
         echo "    <section class=\"container-fluid \" id=\"bienvenue\">
         <div id=\"apropos\" class=\" h-100 row align-items-center justify-content-center text-center\" >
 
@@ -94,34 +95,36 @@ class __TwigTemplate_ecef8f69199f649990fef7048a34c04926a5de44f9ce5986445bfc396a2
             </div>
 
         </div>
+        
     </section>
 
 
     <div class=\"container-fluid\">
         <!-- GRANDE SECTION -->
-        <section class=\"row col-12  align-items-center justify-content-center\" id=\"positionColonne\">
+        <section class=\"row col-12  align-items-center justify-content-center\" id=\"presentation\">
 
             <div class=\"cadre\" ></div>
-            <div class=\"col-12 col-sm-6 col-md-4 image\" data-aos=\"zoom-in\" data-aos-duration=\"2000\">
+            <div class=\"col-12 col-md-6 col-lg-4 image\" data-aos=\"zoom-in\" data-aos-duration=\"2000\">
                 <img src=\"";
-        // line 27
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/magasin.jpg"), "html", null, true);
+        // line 26
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/logo4.png"), "html", null, true);
         echo "\" alt=\"photo maquillage\">
             </div>
 
-            <div class=\"col-12 col-sm-6 col-md-4 discover\" id=\"propos\">
+            <div class=\"col-12 col-md-6 col-lg-4 discover\" id=\"propos\">
 
-                <h3 >A propos</h3>
-                <h4>Notre experience</h4>
-                <p >Poussez la porte de l’institut, c’est arriver dans un lieu sympathique à l’ambiance chaleureuse. Vous êtes accueillie par une équipe souriante et dynamique à l’image du salon. Passionnées par leur métier, ces professionnelles sont aux petits soins pour répondre à vos souhaits.
+                ";
+        // line 32
+        echo "                <h3 class=\" text-center text-white\">Notre experience</h3>
+                <p >Pousser la porte de l’institut, c’est arriver dans un lieu sympathique à l’ambiance chaleureuse. Vous êtes accueillie par une équipe souriante et dynamique à l’image du salon. Passionnées par leur métier et expérimentées de nombreuses années, ces professionnelles sont aux petits soins pour répondre à vos souhaits.
 
-                    Ainsi laissez-vous tenter par une manucure ou une beauté des pieds pour un moment de détente intense. Le visage et le corps ne sont pas en reste. Que ce soit pour un soin qui sublime votre visage ou pour une épilation, tout est fait pour prendre soin de vous ! De même pour une beauté complète, optez pour les forfaits sélectionnés par votre équipe au savoir-faire indiscutable. Tous nos produits de grande marque sont signés OPI pour préserver votre beauté naturelle.</p>
+                Ainsi laissez-vous tenter par une manucure ou une beauté des pieds pour un moment de détente intense. Le visage et le corps ne sont pas en reste. Que ce soit pour un soin qui sublime votre visage ou vos mains, tout est fait pour prendre soin de vous !</p>
 
             </div>
 
         </section> <!--.row-->
 
-        <section class=\"row col-12\" id=\"menu\">
+        <section class=\"row col-12\" id=\"prestation\">
 
             <div class=\"col-md-2 aside1 img-fluid\" ></div> <!--ASIDE GAUCHE-->
 
@@ -129,7 +132,7 @@ class __TwigTemplate_ecef8f69199f649990fef7048a34c04926a5de44f9ce5986445bfc396a2
 
                 <br><br><br>
 
-                <h2 class=\"text-center\" id=\"prestation\">PRESTATIONS</h2>
+                <h2 class=\"text-center\">PRESTATION</h2>
 
                 <br><br><br>
 
@@ -243,39 +246,39 @@ class __TwigTemplate_ecef8f69199f649990fef7048a34c04926a5de44f9ce5986445bfc396a2
         </section> <!--row-->
 
         <section class=\"row\" id=\"blog\">
-            <h2 class=\"text-center\">Blog</h2>
+            <h2 class=\"text-center\">Blog Halinh</h2>
 
             ";
-        // line 166
+        // line 165
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable((isset($context["articles"]) || array_key_exists("articles", $context) ? $context["articles"] : (function () { throw new RuntimeError('Variable "articles" does not exist.', 166, $this->source); })()));
+        $context['_seq'] = twig_ensure_traversable((isset($context["articles"]) || array_key_exists("articles", $context) ? $context["articles"] : (function () { throw new RuntimeError('Variable "articles" does not exist.', 165, $this->source); })()));
         foreach ($context['_seq'] as $context["_key"] => $context["article"]) {
-            // line 167
+            // line 166
             echo "
                 <div class=\"col-md-4 mt-5 text-center\">
 
                     <div class=\"card animediv\" >
 
                         <img class=\"animate card-img-top\" src=\"";
-            // line 172
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("img/" . twig_get_attribute($this->env, $this->source, $context["article"], "poster", [], "any", false, false, false, 172))), "html", null, true);
+            // line 171
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl(("img/" . twig_get_attribute($this->env, $this->source, $context["article"], "poster", [], "any", false, false, false, 171))), "html", null, true);
             echo "\" alt=\"";
-            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "titre", [], "any", false, false, false, 172), "html", null, true);
+            echo twig_escape_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "titre", [], "any", false, false, false, 171), "html", null, true);
             echo "\">
 
                         <div class=\"card-body\">
 
                             <h5 class=\"card-title\">";
-            // line 176
-            echo twig_escape_filter($this->env, twig_capitalize_string_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "titre", [], "any", false, false, false, 176)), "html", null, true);
+            // line 175
+            echo twig_escape_filter($this->env, twig_capitalize_string_filter($this->env, twig_get_attribute($this->env, $this->source, $context["article"], "titre", [], "any", false, false, false, 175)), "html", null, true);
             echo "</h5>
 
 ";
-            // line 179
+            // line 178
             echo "
                             <a href=\"";
-            // line 180
-            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("detail", ["id" => twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 180)]), "html", null, true);
+            // line 179
+            echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("detail", ["id" => twig_get_attribute($this->env, $this->source, $context["article"], "id", [], "any", false, false, false, 179)]), "html", null, true);
             echo "\" class=\"btn btn-primary\">En savoir plus</a>
 
                         </div>
@@ -289,11 +292,11 @@ class __TwigTemplate_ecef8f69199f649990fef7048a34c04926a5de44f9ce5986445bfc396a2
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['article'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 189
+        // line 188
         echo "
         </section><!--Row Blog-->
 
-        <section id=\"meteo\" class=\"mt-3 mb-3\">
+        <section id=\"meteo\" class=\"pt-3 pb-3\">
 
             <div class=\"container\">
 
@@ -302,7 +305,7 @@ class __TwigTemplate_ecef8f69199f649990fef7048a34c04926a5de44f9ce5986445bfc396a2
 
                     <div class=\"col-12 text-center\">
                         <span id=\"ville\">Paris</span>
-
+                        
                         <div id=\"temperature\">
                             <span id=\"temperature-indice\">
                             xx.x
@@ -322,14 +325,9 @@ class __TwigTemplate_ecef8f69199f649990fef7048a34c04926a5de44f9ce5986445bfc396a2
 
     <div class=\"container-fluid d-flex align-items center col-12 text-center\" id=\"googlemap\">
 
-        <iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d42619.24570080961!2d-1.7234738316586826!3d48.11596753403908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480ede2fa7d69085%3A0x40ca5cd36e4ab30!2sRennes!5e0!3m2!1sfr!2sfr!4v1626178568480!5m2!1sfr!2sfr\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>
+        <iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2663.905058887641!2d-1.6834691841660232!3d48.11206716091603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480ede33ef53d35b%3A0x7efd99f56e690444!2s2%20Rue%20de%20Clisson%2C%2035000%20Rennes!5e0!3m2!1sfr!2sfr!4v1649253107204!5m2!1sfr!2sfr\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>
 
     </div>
-
-
-
-
-
 
 ";
         
@@ -352,16 +350,14 @@ class __TwigTemplate_ecef8f69199f649990fef7048a34c04926a5de44f9ce5986445bfc396a2
 
     public function getDebugInfo()
     {
-        return array (  293 => 189,  278 => 180,  275 => 179,  270 => 176,  261 => 172,  254 => 167,  250 => 166,  108 => 27,  87 => 8,  77 => 7,  59 => 5,  36 => 1,);
+        return array (  296 => 188,  281 => 179,  278 => 178,  273 => 175,  264 => 171,  257 => 166,  253 => 165,  118 => 32,  110 => 26,  88 => 6,  78 => 5,  59 => 3,  36 => 1,);
     }
 
     public function getSourceContext()
     {
         return new Source("{% extends 'base.html.twig' %}
 
-
-
-{% block title %}{% endblock %}
+{% block title %}{{ parent() }}{% endblock %}
 
 {% block body %}
     <section class=\"container-fluid \" id=\"bienvenue\">
@@ -374,31 +370,32 @@ class __TwigTemplate_ecef8f69199f649990fef7048a34c04926a5de44f9ce5986445bfc396a2
             </div>
 
         </div>
+        
     </section>
 
 
     <div class=\"container-fluid\">
         <!-- GRANDE SECTION -->
-        <section class=\"row col-12  align-items-center justify-content-center\" id=\"positionColonne\">
+        <section class=\"row col-12  align-items-center justify-content-center\" id=\"presentation\">
 
             <div class=\"cadre\" ></div>
-            <div class=\"col-12 col-sm-6 col-md-4 image\" data-aos=\"zoom-in\" data-aos-duration=\"2000\">
-                <img src=\"{{ asset(\"img/magasin.jpg\") }}\" alt=\"photo maquillage\">
+            <div class=\"col-12 col-md-6 col-lg-4 image\" data-aos=\"zoom-in\" data-aos-duration=\"2000\">
+                <img src=\"{{ asset(\"img/logo4.png\") }}\" alt=\"photo maquillage\">
             </div>
 
-            <div class=\"col-12 col-sm-6 col-md-4 discover\" id=\"propos\">
+            <div class=\"col-12 col-md-6 col-lg-4 discover\" id=\"propos\">
 
-                <h3 >A propos</h3>
-                <h4>Notre experience</h4>
-                <p >Poussez la porte de l’institut, c’est arriver dans un lieu sympathique à l’ambiance chaleureuse. Vous êtes accueillie par une équipe souriante et dynamique à l’image du salon. Passionnées par leur métier, ces professionnelles sont aux petits soins pour répondre à vos souhaits.
+                {# <h2 class=\"text-center\">A propos</h2> #}
+                <h3 class=\" text-center text-white\">Notre experience</h3>
+                <p >Pousser la porte de l’institut, c’est arriver dans un lieu sympathique à l’ambiance chaleureuse. Vous êtes accueillie par une équipe souriante et dynamique à l’image du salon. Passionnées par leur métier et expérimentées de nombreuses années, ces professionnelles sont aux petits soins pour répondre à vos souhaits.
 
-                    Ainsi laissez-vous tenter par une manucure ou une beauté des pieds pour un moment de détente intense. Le visage et le corps ne sont pas en reste. Que ce soit pour un soin qui sublime votre visage ou pour une épilation, tout est fait pour prendre soin de vous ! De même pour une beauté complète, optez pour les forfaits sélectionnés par votre équipe au savoir-faire indiscutable. Tous nos produits de grande marque sont signés OPI pour préserver votre beauté naturelle.</p>
+                Ainsi laissez-vous tenter par une manucure ou une beauté des pieds pour un moment de détente intense. Le visage et le corps ne sont pas en reste. Que ce soit pour un soin qui sublime votre visage ou vos mains, tout est fait pour prendre soin de vous !</p>
 
             </div>
 
         </section> <!--.row-->
 
-        <section class=\"row col-12\" id=\"menu\">
+        <section class=\"row col-12\" id=\"prestation\">
 
             <div class=\"col-md-2 aside1 img-fluid\" ></div> <!--ASIDE GAUCHE-->
 
@@ -406,7 +403,7 @@ class __TwigTemplate_ecef8f69199f649990fef7048a34c04926a5de44f9ce5986445bfc396a2
 
                 <br><br><br>
 
-                <h2 class=\"text-center\" id=\"prestation\">PRESTATIONS</h2>
+                <h2 class=\"text-center\">PRESTATION</h2>
 
                 <br><br><br>
 
@@ -520,7 +517,7 @@ class __TwigTemplate_ecef8f69199f649990fef7048a34c04926a5de44f9ce5986445bfc396a2
         </section> <!--row-->
 
         <section class=\"row\" id=\"blog\">
-            <h2 class=\"text-center\">Blog</h2>
+            <h2 class=\"text-center\">Blog Halinh</h2>
 
             {% for article in articles %}
 
@@ -548,7 +545,7 @@ class __TwigTemplate_ecef8f69199f649990fef7048a34c04926a5de44f9ce5986445bfc396a2
 
         </section><!--Row Blog-->
 
-        <section id=\"meteo\" class=\"mt-3 mb-3\">
+        <section id=\"meteo\" class=\"pt-3 pb-3\">
 
             <div class=\"container\">
 
@@ -557,7 +554,7 @@ class __TwigTemplate_ecef8f69199f649990fef7048a34c04926a5de44f9ce5986445bfc396a2
 
                     <div class=\"col-12 text-center\">
                         <span id=\"ville\">Paris</span>
-
+                        
                         <div id=\"temperature\">
                             <span id=\"temperature-indice\">
                             xx.x
@@ -577,14 +574,9 @@ class __TwigTemplate_ecef8f69199f649990fef7048a34c04926a5de44f9ce5986445bfc396a2
 
     <div class=\"container-fluid d-flex align-items center col-12 text-center\" id=\"googlemap\">
 
-        <iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d42619.24570080961!2d-1.7234738316586826!3d48.11596753403908!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480ede2fa7d69085%3A0x40ca5cd36e4ab30!2sRennes!5e0!3m2!1sfr!2sfr!4v1626178568480!5m2!1sfr!2sfr\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\"></iframe>
+        <iframe src=\"https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2663.905058887641!2d-1.6834691841660232!3d48.11206716091603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480ede33ef53d35b%3A0x7efd99f56e690444!2s2%20Rue%20de%20Clisson%2C%2035000%20Rennes!5e0!3m2!1sfr!2sfr!4v1649253107204!5m2!1sfr!2sfr\" width=\"600\" height=\"450\" style=\"border:0;\" allowfullscreen=\"\" loading=\"lazy\" referrerpolicy=\"no-referrer-when-downgrade\"></iframe>
 
     </div>
-
-
-
-
-
 
 {% endblock %}
 ", "main/list.html.twig", "D:\\projet5\\templates\\main\\list.html.twig");

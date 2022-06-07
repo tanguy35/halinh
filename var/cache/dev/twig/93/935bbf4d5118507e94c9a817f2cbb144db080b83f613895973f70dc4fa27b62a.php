@@ -109,7 +109,7 @@ class __TwigTemplate_edf86cb348abccd77190acc08e9a8ab9507ce557b5026029254d73456f0
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "body"));
 
         // line 10
-        echo "    <div class=\"container\">
+        echo "    <div class=\"container\" id=\"bg-backoffice\">
         ";
         // line 11
         if (array_key_exists("update", $context)) {
@@ -194,7 +194,7 @@ class __TwigTemplate_edf86cb348abccd77190acc08e9a8ab9507ce557b5026029254d73456f0
 {% block title %}Dashboard{% endblock %}
 
 {% block body %}
-    <div class=\"container\">
+    <div class=\"container\" id=\"bg-backoffice\">
         {% if update is defined %}
             <h1>Modification des articles</h1>
             {% form_theme formUpdate 'bootstrap_5_layout.html.twig' %}

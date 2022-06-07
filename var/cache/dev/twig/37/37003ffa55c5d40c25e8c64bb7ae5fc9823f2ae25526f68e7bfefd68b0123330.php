@@ -27,6 +27,7 @@ class __TwigTemplate_77cc1f497abfa21f4022ffe4e7e9f3c2934fe13d3b119e5ddc877503d03
         $this->parent = false;
 
         $this->blocks = [
+            'title' => [$this, 'block_title'],
             'stylesheets' => [$this, 'block_stylesheets'],
             'body' => [$this, 'block_body'],
         ];
@@ -49,7 +50,10 @@ class __TwigTemplate_77cc1f497abfa21f4022ffe4e7e9f3c2934fe13d3b119e5ddc877503d03
     <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
     <meta name=\"description\" content=\"Salon spécialiste des Soins et de la Beauté des Mains, des Pieds et de leurs Ongles à Rennes\">
-    <title>Salon beauté et esthétique de Rennes</title>
+    <title>";
+        // line 8
+        $this->displayBlock('title', $context, $blocks);
+        echo "</title>
 
     <!--Bootstrap CSS  -->
     <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\" crossorigin=\"anonymous\">
@@ -61,7 +65,7 @@ class __TwigTemplate_77cc1f497abfa21f4022ffe4e7e9f3c2934fe13d3b119e5ddc877503d03
         echo "    <!--Favicon-->
     <link rel=\"shortcut icon\" href=\"";
         // line 17
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/LDB.png"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/logo2.png"), "html", null, true);
         echo "\" type=\"image/x-icon\">
     <!--Google font-->
     <link href=\"https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Lato&family=Pinyon+Script&family=Roboto&display=swap\" rel=\"stylesheet\">
@@ -75,25 +79,29 @@ class __TwigTemplate_77cc1f497abfa21f4022ffe4e7e9f3c2934fe13d3b119e5ddc877503d03
 </head>
 <body>
 
-<header>
+<header class=\"d-flex justify-content-center\">
     <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">
         <div class=\"container\">
             <a class=\"navbar-brand \" href=\"\"></a>
             <img src=\"";
         // line 34
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/LDB2.png"), "html", null, true);
-        echo "\" alt=\"logo\" width=\"75\" height=\"75\">
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/logo1.png"), "html", null, true);
+        echo "\" alt=\"logo\" width=\"110\" height=\"110\">
             <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarColor03\" aria-controls=\"navbarColor03\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
                 <span class=\"navbar-toggler-icon\"></span>
             </button>
 
             <div class=\"collapse navbar-collapse \" id=\"navbarColor03\">
                 <ul class=\"navbar-nav me-auto \">
-                    <li class=\"nav-item\">
+                ";
+        // line 41
+        if ((0 === twig_compare(twig_get_attribute($this->env, $this->source, twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 41, $this->source); })()), "request", [], "any", false, false, false, 41), "pathInfo", [], "any", false, false, false, 41), "/"))) {
+            // line 42
+            echo "                    <li class=\"nav-item\">
                         <a class=\"nav-link active\" href=\"";
-        // line 42
-        echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("main_home");
-        echo "\">Accueil
+            // line 43
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("main_home");
+            echo "\">Accueil
                             <span class=\"visually-hidden\">(current)</span>
                         </a>
                     </li>
@@ -115,40 +123,56 @@ class __TwigTemplate_77cc1f497abfa21f4022ffe4e7e9f3c2934fe13d3b119e5ddc877503d03
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"#contact\">Contact</a>
                     </li>
-
+                    
                     ";
-        // line 65
-        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 65, $this->source); })()), "user", [], "any", false, false, false, 65)) {
-            // line 66
+        } else {
+            // line 67
+            echo "                        <li class=\"nav-item\">
+                            <a class=\"nav-link \" href=\"";
+            // line 68
+            echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("main_home");
+            echo "\">Accueil</a>
+                        </li>
+                    
+
+                ";
+        }
+        // line 73
+        echo "                
+                    ";
+        // line 74
+        if (twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 74, $this->source); })()), "user", [], "any", false, false, false, 74)) {
+            // line 75
             echo "                        ";
             if ($this->extensions['Symfony\Bridge\Twig\Extension\SecurityExtension']->isGranted("ROLE_ADMIN")) {
-                // line 67
+                // line 76
                 echo "                            <li class=\"nav-item\">
                                 <a class=\"nav-link\" href=\"";
-                // line 68
+                // line 77
                 echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("admin_list");
                 echo "\">Dashboard</a>
                             </li>
                             <li class=\"nav-item\">
                                 <a class=\"nav-link\" href=\"";
-                // line 71
+                // line 80
                 echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("logout");
                 echo "\">Deconnexion</a>
                             </li>
                         ";
             }
-            // line 74
+            // line 83
             echo "
                     ";
         }
-        // line 76
+        // line 85
         echo "
                 </ul>
 
             </div>
         </div>
-        <a href=\"https://fr-fr.facebook.com/\" target=\"_blank\"><i class=\"fab fa-2x fa-facebook\"></i></a>
-    </nav>
+";
+        // line 91
+        echo "    </nav>
 
 
 </header>
@@ -157,14 +181,14 @@ class __TwigTemplate_77cc1f497abfa21f4022ffe4e7e9f3c2934fe13d3b119e5ddc877503d03
 <div class=\"container-fluid\">
 
     ";
-        // line 90
+        // line 99
         $context['_parent'] = $context;
-        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 90, $this->source); })()), "flashes", [0 => "success"], "method", false, false, false, 90));
+        $context['_seq'] = twig_ensure_traversable(twig_get_attribute($this->env, $this->source, (isset($context["app"]) || array_key_exists("app", $context) ? $context["app"] : (function () { throw new RuntimeError('Variable "app" does not exist.', 99, $this->source); })()), "flashes", [0 => "success"], "method", false, false, false, 99));
         foreach ($context['_seq'] as $context["_key"] => $context["message"]) {
-            // line 91
+            // line 100
             echo "        <div class=\"alert alert-success\">
             ";
-            // line 92
+            // line 101
             echo twig_escape_filter($this->env, $context["message"], "html", null, true);
             echo "
         </div>
@@ -173,13 +197,13 @@ class __TwigTemplate_77cc1f497abfa21f4022ffe4e7e9f3c2934fe13d3b119e5ddc877503d03
         $_parent = $context['_parent'];
         unset($context['_seq'], $context['_iterated'], $context['_key'], $context['message'], $context['_parent'], $context['loop']);
         $context = array_intersect_key($context, $_parent) + $_parent;
-        // line 95
+        // line 104
         echo "
 
     ";
-        // line 97
+        // line 106
         $this->displayBlock('body', $context, $blocks);
-        // line 98
+        // line 107
         echo "
 </div>
 
@@ -190,21 +214,22 @@ class __TwigTemplate_77cc1f497abfa21f4022ffe4e7e9f3c2934fe13d3b119e5ddc877503d03
     <div class=\"row justify-content-around col-12 col-md-8\" >
 
         <div class=\"col-md-3 text-start\">
-            <h6>HALINH beaute</h6>
+            <h6>HALINH BEAUTE</h6>
             <img class=\"img-fluid\" src=\"";
-        // line 109
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/LDB2.png"), "html", null, true);
-        echo "\" alt=\"logo\" width=\"80\" height=\"80\">
+        // line 118
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("img/logo4.png"), "html", null, true);
+        echo "\" alt=\"logo\" width=\"120\" height=\"120\">
             <br><br>
-            <p>2022 Tout droit réservé </p>
+            
         </div>
 
         <div class=\"col-md-3 text-start\">
             <h6>Contact Info</h6>
             <br>
-            <p>Tel : 01 02 03 04 05</p>
-            <p>Adresse : rue de Paris, 35000 Rennes</p>
-            <p>Email : LDB@gmail.com</p>
+            <p>Tel : coming soon</p>
+            <p>Adresse : 2 rue de Clisson
+                        <br>35000 Rennes</p>
+            <p>Email : coming soon</p>
         </div>
 
         <div class=\"col-md-3 text-start\">
@@ -212,17 +237,21 @@ class __TwigTemplate_77cc1f497abfa21f4022ffe4e7e9f3c2934fe13d3b119e5ddc877503d03
             <br>
             <p>Lundi au samedi 9h30-13h / 14h-19h</p>
             <p><a href=\"";
-        // line 126
+        // line 136
         echo $this->extensions['Symfony\Bridge\Twig\Extension\RoutingExtension']->getPath("mentions");
         echo "\">Mentions légales</a></p>
 
         </div>
-
+        <hr>
+        <p>©2022 Tout droit réservé </p>
     </div>
 
 </footer>
 
-<script src=\"js/script.js\"></script>
+<script src=\"";
+        // line 145
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("js/script.js"), "html", null, true);
+        echo "\"></script>
 <script>AOS.init();
 </script>
 <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p\" crossorigin=\"anonymous\"></script>
@@ -234,6 +263,25 @@ class __TwigTemplate_77cc1f497abfa21f4022ffe4e7e9f3c2934fe13d3b119e5ddc877503d03
 
         
         $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+    }
+
+    // line 8
+    public function block_title($context, array $blocks = [])
+    {
+        $macros = $this->macros;
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e = $this->extensions["Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension"];
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->enter($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
+
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02 = $this->extensions["Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension"];
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->enter($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof = new \Twig\Profiler\Profile($this->getTemplateName(), "block", "title"));
+
+        echo "Institut de Beauté HALINH : soins des mains et du visage à Rennes";
+        
+        $__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02->leave($__internal_319393461309892924ff6e74d6d6e64287df64b63545b994e100d4ab223aed02_prof);
+
+        
+        $__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e->leave($__internal_085b0142806202599c7fe3b329164a92397d8978207a37e79d70b8c52599e33e_prof);
 
     }
 
@@ -260,7 +308,7 @@ class __TwigTemplate_77cc1f497abfa21f4022ffe4e7e9f3c2934fe13d3b119e5ddc877503d03
 
     }
 
-    // line 97
+    // line 106
     public function block_body($context, array $blocks = [])
     {
         $macros = $this->macros;
@@ -290,7 +338,7 @@ class __TwigTemplate_77cc1f497abfa21f4022ffe4e7e9f3c2934fe13d3b119e5ddc877503d03
 
     public function getDebugInfo()
     {
-        return array (  264 => 97,  251 => 14,  241 => 13,  216 => 126,  196 => 109,  183 => 98,  181 => 97,  177 => 95,  168 => 92,  165 => 91,  161 => 90,  145 => 76,  141 => 74,  135 => 71,  129 => 68,  126 => 67,  123 => 66,  121 => 65,  95 => 42,  84 => 34,  64 => 17,  61 => 16,  59 => 13,  45 => 1,);
+        return array (  312 => 106,  299 => 14,  289 => 13,  270 => 8,  253 => 145,  241 => 136,  220 => 118,  207 => 107,  205 => 106,  201 => 104,  192 => 101,  189 => 100,  185 => 99,  175 => 91,  168 => 85,  164 => 83,  158 => 80,  152 => 77,  149 => 76,  146 => 75,  144 => 74,  141 => 73,  133 => 68,  130 => 67,  103 => 43,  100 => 42,  98 => 41,  88 => 34,  68 => 17,  65 => 16,  63 => 13,  55 => 8,  46 => 1,);
     }
 
     public function getSourceContext()
@@ -302,7 +350,7 @@ class __TwigTemplate_77cc1f497abfa21f4022ffe4e7e9f3c2934fe13d3b119e5ddc877503d03
     <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
     <meta name=\"description\" content=\"Salon spécialiste des Soins et de la Beauté des Mains, des Pieds et de leurs Ongles à Rennes\">
-    <title>Salon beauté et esthétique de Rennes</title>
+    <title>{% block title %}Institut de Beauté HALINH : soins des mains et du visage à Rennes{% endblock %}</title>
 
     <!--Bootstrap CSS  -->
     <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\" crossorigin=\"anonymous\">
@@ -311,7 +359,7 @@ class __TwigTemplate_77cc1f497abfa21f4022ffe4e7e9f3c2934fe13d3b119e5ddc877503d03
         <link rel=\"stylesheet\" href=\"{{ asset('css/style.css') }}\">
     {% endblock %}
     <!--Favicon-->
-    <link rel=\"shortcut icon\" href=\"{{ asset('img/LDB.png') }}\" type=\"image/x-icon\">
+    <link rel=\"shortcut icon\" href=\"{{ asset('img/logo2.png') }}\" type=\"image/x-icon\">
     <!--Google font-->
     <link href=\"https://fonts.googleapis.com/css2?family=Comforter+Brush&family=Lato&family=Pinyon+Script&family=Roboto&display=swap\" rel=\"stylesheet\">
     <!--CDN de fontawesome -->
@@ -324,17 +372,18 @@ class __TwigTemplate_77cc1f497abfa21f4022ffe4e7e9f3c2934fe13d3b119e5ddc877503d03
 </head>
 <body>
 
-<header>
+<header class=\"d-flex justify-content-center\">
     <nav class=\"navbar navbar-expand-lg navbar-light bg-light\">
         <div class=\"container\">
             <a class=\"navbar-brand \" href=\"\"></a>
-            <img src=\"{{ asset('img/LDB2.png') }}\" alt=\"logo\" width=\"75\" height=\"75\">
+            <img src=\"{{ asset('img/logo1.png') }}\" alt=\"logo\" width=\"110\" height=\"110\">
             <button class=\"navbar-toggler\" type=\"button\" data-bs-toggle=\"collapse\" data-bs-target=\"#navbarColor03\" aria-controls=\"navbarColor03\" aria-expanded=\"false\" aria-label=\"Toggle navigation\">
                 <span class=\"navbar-toggler-icon\"></span>
             </button>
 
             <div class=\"collapse navbar-collapse \" id=\"navbarColor03\">
                 <ul class=\"navbar-nav me-auto \">
+                {% if  app.request.pathInfo == \"/\" %}
                     <li class=\"nav-item\">
                         <a class=\"nav-link active\" href=\"{{ path('main_home') }}\">Accueil
                             <span class=\"visually-hidden\">(current)</span>
@@ -358,7 +407,15 @@ class __TwigTemplate_77cc1f497abfa21f4022ffe4e7e9f3c2934fe13d3b119e5ddc877503d03
                     <li class=\"nav-item\">
                         <a class=\"nav-link\" href=\"#contact\">Contact</a>
                     </li>
+                    
+                    {% else %}
+                        <li class=\"nav-item\">
+                            <a class=\"nav-link \" href=\"{{ path('main_home') }}\">Accueil</a>
+                        </li>
+                    
 
+                {% endif %}
+                
                     {% if app.user %}
                         {% if is_granted(\"ROLE_ADMIN\") %}
                             <li class=\"nav-item\">
@@ -375,7 +432,7 @@ class __TwigTemplate_77cc1f497abfa21f4022ffe4e7e9f3c2934fe13d3b119e5ddc877503d03
 
             </div>
         </div>
-        <a href=\"https://fr-fr.facebook.com/\" target=\"_blank\"><i class=\"fab fa-2x fa-facebook\"></i></a>
+{#        <a href=\"https://fr-fr.facebook.com/\" target=\"_blank\"><i class=\"fab fa-2x fa-facebook\"></i></a>#}
     </nav>
 
 
@@ -402,18 +459,19 @@ class __TwigTemplate_77cc1f497abfa21f4022ffe4e7e9f3c2934fe13d3b119e5ddc877503d03
     <div class=\"row justify-content-around col-12 col-md-8\" >
 
         <div class=\"col-md-3 text-start\">
-            <h6>HALINH beaute</h6>
-            <img class=\"img-fluid\" src=\"{{ asset('img/LDB2.png') }}\" alt=\"logo\" width=\"80\" height=\"80\">
+            <h6>HALINH BEAUTE</h6>
+            <img class=\"img-fluid\" src=\"{{ asset('img/logo4.png') }}\" alt=\"logo\" width=\"120\" height=\"120\">
             <br><br>
-            <p>2022 Tout droit réservé </p>
+            
         </div>
 
         <div class=\"col-md-3 text-start\">
             <h6>Contact Info</h6>
             <br>
-            <p>Tel : 01 02 03 04 05</p>
-            <p>Adresse : rue de Paris, 35000 Rennes</p>
-            <p>Email : LDB@gmail.com</p>
+            <p>Tel : coming soon</p>
+            <p>Adresse : 2 rue de Clisson
+                        <br>35000 Rennes</p>
+            <p>Email : coming soon</p>
         </div>
 
         <div class=\"col-md-3 text-start\">
@@ -423,12 +481,13 @@ class __TwigTemplate_77cc1f497abfa21f4022ffe4e7e9f3c2934fe13d3b119e5ddc877503d03
             <p><a href=\"{{ path('mentions') }}\">Mentions légales</a></p>
 
         </div>
-
+        <hr>
+        <p>©2022 Tout droit réservé </p>
     </div>
 
 </footer>
 
-<script src=\"js/script.js\"></script>
+<script src=\"{{ asset('js/script.js') }}\"></script>
 <script>AOS.init();
 </script>
 <script src=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js\" integrity=\"sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p\" crossorigin=\"anonymous\"></script>

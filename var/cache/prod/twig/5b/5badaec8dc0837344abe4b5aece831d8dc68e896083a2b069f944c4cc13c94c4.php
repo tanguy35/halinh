@@ -47,6 +47,7 @@ class __TwigTemplate_be4e38caa469ee4d63d82edf4e05f5d7d4837358280f318e7eaa449fd70
     public function block_title($context, array $blocks = [])
     {
         $macros = $this->macros;
+        echo "Institut de Beauté HALINH : soins des mains et du visage à Rennes";
     }
 
     // line 7
@@ -316,7 +317,7 @@ class __TwigTemplate_be4e38caa469ee4d63d82edf4e05f5d7d4837358280f318e7eaa449fd70
 
     public function getDebugInfo()
     {
-        return array (  263 => 189,  248 => 180,  245 => 179,  240 => 176,  231 => 172,  224 => 167,  220 => 166,  78 => 27,  57 => 8,  53 => 7,  47 => 5,  36 => 1,);
+        return array (  264 => 189,  249 => 180,  246 => 179,  241 => 176,  232 => 172,  225 => 167,  221 => 166,  79 => 27,  58 => 8,  54 => 7,  47 => 5,  36 => 1,);
     }
 
     public function getSourceContext()

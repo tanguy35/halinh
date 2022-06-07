@@ -68,7 +68,7 @@ class __TwigTemplate_2184a510b05c61f2c320f9a19043fbd99c5c4ca72a97d532b601ebe892c
 
         // line 4
         echo "    <link rel=\"stylesheet\" href=\"";
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/style1.css"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/style2.css"), "html", null, true);
         echo "\">
 ";
         
@@ -138,11 +138,10 @@ class __TwigTemplate_2184a510b05c61f2c320f9a19043fbd99c5c4ca72a97d532b601ebe892c
                 <label for=\"password\">Password:</label>
                 <input class=\"form-control\" type=\"password\" id=\"password\" name=\"_password\"/>
             </div>
+                
             <button class=\"btn btn-primary mt-3\" type=\"submit\">login</button>
         </form>
     </div>
-
-
 
 
 ";
@@ -174,7 +173,7 @@ class __TwigTemplate_2184a510b05c61f2c320f9a19043fbd99c5c4ca72a97d532b601ebe892c
         return new Source("{% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-    <link rel=\"stylesheet\" href=\"{{ asset(\"css/style1.css\") }}\">
+    <link rel=\"stylesheet\" href=\"{{ asset(\"css/style2.css\") }}\">
 {% endblock %}
 
 {% block title %}login{% endblock %}
@@ -196,11 +195,10 @@ class __TwigTemplate_2184a510b05c61f2c320f9a19043fbd99c5c4ca72a97d532b601ebe892c
                 <label for=\"password\">Password:</label>
                 <input class=\"form-control\" type=\"password\" id=\"password\" name=\"_password\"/>
             </div>
+                
             <button class=\"btn btn-primary mt-3\" type=\"submit\">login</button>
         </form>
     </div>
-
-
 
 
 {% endblock %}

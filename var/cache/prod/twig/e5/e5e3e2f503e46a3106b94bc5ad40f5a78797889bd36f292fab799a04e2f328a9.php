@@ -43,7 +43,7 @@ class __TwigTemplate_0608e58b6f39bdbbc8e51fab10d5a981c0417185007791cb2c62e016a56
     <meta http-equiv=\"X-UA-Compatible\" content=\"IE=edge\">
     <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
     <meta name=\"description\" content=\"Salon spécialiste des Soins et de la Beauté des Mains, des Pieds et de leurs Ongles à Rennes\">
-    <title>Salon beauté et esthétique de Rennes</title>
+    <title>Institut de Beauté HALINH : soins des mains et du visage à Rennes</title>
 
     <!--Bootstrap CSS  -->
     <link href=\"https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css\" rel=\"stylesheet\" integrity=\"sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3\" crossorigin=\"anonymous\">

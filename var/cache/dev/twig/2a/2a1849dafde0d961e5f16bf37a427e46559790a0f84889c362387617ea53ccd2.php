@@ -68,7 +68,7 @@ class __TwigTemplate_4ab093fa7b5d934d84bb8bcc890e4b144a75fefdcdfb506bfd4ecf44d98
 
         // line 4
         echo "    <link rel=\"stylesheet\" href=\"";
-        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/style1.css"), "html", null, true);
+        echo twig_escape_filter($this->env, $this->extensions['Symfony\Bridge\Twig\Extension\AssetExtension']->getAssetUrl("css/style2.css"), "html", null, true);
         echo "\">
 ";
         
@@ -167,7 +167,7 @@ class __TwigTemplate_4ab093fa7b5d934d84bb8bcc890e4b144a75fefdcdfb506bfd4ecf44d98
         return new Source("{% extends 'base.html.twig' %}
 
 {% block stylesheets %}
-    <link rel=\"stylesheet\" href=\"{{ asset('css/style1.css') }}\">
+    <link rel=\"stylesheet\" href=\"{{ asset('css/style2.css') }}\">
 {% endblock %}
 
 

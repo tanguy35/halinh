@@ -1,0 +1,375 @@
+/* GENERAL */
+
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    color: #6F6F6F;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 1px;
+    
+}
+
+p {
+    text-align: justify;
+}
+
+.container-fluid{
+    padding: 0 ;
+    position: relative;
+}
+.fa-angle-double-up{
+    color: #383636;
+}
+.card-body{
+    background: #BAAA9D;
+}
+
+h3{
+    color: #383636 ;
+    font-family: 'Pinyon Script', cursive;
+    font-size: 2.5rem;
+}
+ h4{
+    color: #383636;
+    font-weight: lighter;
+    
+    font-size: 2rem;
+}
+h5{
+    color: #383636;
+    font-weight: bold;
+}
+h6{
+    color: #383636 ;
+    font-weight: bold;
+}
+td{
+    color: #fff;
+
+}
+th{
+    color: #383636;
+
+}
+
+
+
+.btn-primary {
+
+    background-color: #383636;
+    border-color: #383636;
+    margin-top: 5px;
+    border-radius: 0 !important;
+}
+.btn-primary:hover{
+    background-color: #C89446;
+    border-color: #C89446;
+}
+
+.btn-danger {
+
+    background-color: #9F1A06 ;
+    border-color: #9F1A06 ;
+}
+
+ /*HEADER*/
+
+header {
+    background: #DBD1CB;
+}
+header p{
+    color: #fff;
+}
+
+.animate{
+    cursor: pointer;
+}
+
+
+/* NAVBAR */
+.navbar{
+    background-color: #DBD1CB !important;
+    letter-spacing: 5px;
+}
+
+
+.navbar-light .navbar-toggler
+{
+
+    border-color: #fff;
+}
+
+.navbar-toggler-icon{
+    background-color: #fff ;
+}
+header nav a, header ul li a{
+    color: #FFF !important;
+    text-decoration: none;
+}
+header nav a:hover{
+    color: #C89446 !important;
+    transition: 0.3s;
+}
+header nav .btn{
+    background: transparent;
+    color: #000;
+}header nav .btn:hover{
+    background: #C89446 ;
+    color: #fff;
+}
+header nav .reserver:hover{
+    background: #C89446 ;
+    color: #fff;
+    transition: 0.5s;
+}
+header nav li{
+    list-style-type: none;
+}
+header h1{
+    color: #383636;
+    text-transform: uppercase;
+    font-weight: lighter;
+    font-size: 3.8rem;
+    letter-spacing: 12px;
+}
+h2, header h2{
+    color: #383636;
+    text-transform: uppercase;
+    font-weight: lighter;
+    font-size: 1.6rem;
+}
+
+header p{
+    font-size: 1rem;
+}
+#presentation{
+    background: #DBD1CB;
+    margin: 0;
+}
+#presentation img{
+    width: 100%;
+}
+
+#bienvenue{
+    height: 90vh;
+    background: url(../img/bg2.jpeg) no-repeat center center;
+    background-size: cover;
+   
+}
+
+#bienvenue h1{
+    color: #383636;
+    font-size: 3.5rem;
+    letter-spacing: 5px;
+
+}
+#bienvenue h2{
+    font-size: 1.2rem;
+    color: #383636;
+    padding-bottom: 150px;
+}
+section #apropos h3{
+    font-family: 'Pinyon Script', cursive;
+    font-size: 6.5rem;
+    margin: 0;
+    color: goldenrod ;
+
+}
+
+
+/* PRESTATIONS */
+section{
+    position: relative;
+    z-index: 1;
+}
+#prestation{
+    margin: 0;
+    background-color: #BAAA9D;
+}
+
+
+#nom{
+    color: #6F6F6F !important;
+}
+
+
+table p {
+    font-family: 'Pinyon Script', cursive;
+    font-size: 2.5rem;
+    margin: 0;
+    color: #383636 ;
+    font-weight: lighter;
+}
+
+/*BLOG*/
+#blog{
+    margin: 0;
+    background-color: #DBD1CB;
+}
+#blog h2{
+    margin-top: 50px;
+}
+
+
+/* GOOGLE MAP */
+#googlemap iframe{
+    width: 100%;
+}
+.titre-blog {
+    font-size: 1rem;
+}
+
+/* METEO */
+#meteo{
+    margin: 0;
+    background: #DBD1CB;
+}
+#meteo h6 {
+    font-size:2em ;
+    color: #383636;
+}
+
+
+#changer {
+    font-size: 1.2em ;
+    cursor: pointer;
+    width: 230px;
+}
+
+#ville {
+    text-transform: uppercase;
+    color: #383636;;
+}
+
+#temperature {
+    font-size: 4em;
+    color: #fff;
+}
+
+#changer p {
+    margin-bottom: 0;
+}
+
+
+/*CONTACT*/
+#contact{
+    margin : 0;
+    background-color: #DBD1CB;
+}
+
+#back-to-top {
+    position: fixed;
+    bottom: 120px;
+    right: 50px;
+}
+
+
+
+#back-to-top i {
+    font-size: 30px;
+}
+
+/* FOOTER */
+footer{
+
+    background: #BAAA9D;
+    /* background-position: right; */
+    color: #fff;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+footer a{
+    color: #FFFFFF;
+    text-decoration: none;
+}
+footer a:hover{
+    color: #C89446;
+
+}
+footer h6{
+    margin-top: 20px;
+}
+
+
+footer .col-md-3{
+    width: 30%;
+}
+
+/* MEDIA QUERIES */
+
+@media (min-width: 577px) and (max-width: 770px){
+
+    #apropos{
+        padding-top: 0;
+    }
+
+    #presentation img{
+        width: 100%;
+    }
+    
+}
+
+@media (max-width: 576px){
+   body {
+    letter-spacing: none;
+   }
+   
+    section #apropos p {
+        font-size: 5rem;
+    }
+    section #apropos h3{
+        font-size: 4.5rem;
+    }
+    
+   
+    .image img{
+        width: 450px;
+        height: 450px;
+    }
+    #bienvenue{
+        height: 70vh;
+        background-size: cover;
+    }
+    #bienvenue h1 {
+        font-size: 2rem;
+    }
+    #bienvenue h2{
+        font-size: 0.9rem;
+        padding-bottom:100px;
+    }
+    header{
+        height: 60vh;
+    }
+
+    table p{
+      font-size: 1.3rem;
+    }
+    nav {
+        flex-wrap: wrap;
+    }
+    #blog h2{
+        margin-top: 20px;
+    }
+
+    #changer {
+        width: 180px;
+    }
+    #temperature {
+        font-size: 3rem;
+    }
+   
+
+    #back-to-top i {
+        display: none;
+    }
+
+}
+
+
+

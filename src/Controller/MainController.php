@@ -48,7 +48,9 @@ class MainController extends AbstractController
             $manager->persist($commentaire);
             $manager->flush();
             $this->addFlash('success', 'Votre message a bien été ajouté !');
-            return $this->redirectToRoute("main_home");
+            return $this->redirectToRoute('detail',[
+                'id'=> $id
+            ]);
         }
 
         return $this->render('main/detail.html.twig', [
