@@ -7,6 +7,11 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Reference;
 use Symfony\Component\Yaml\Yaml;
 
+/**
+ * @final
+ *
+ * @internal
+ */
 class RegisterMappingDriversPass implements CompilerPassInterface
 {
     public function process(ContainerBuilder $container): void
@@ -16,7 +21,19 @@ class RegisterMappingDriversPass implements CompilerPassInterface
         ];
 
         if ($container->has('annotation_reader')) {
-            $drivers[] = new Reference('vich_uploader.metadata_driver.annotation');
+            $managers = [];
+            if ($container->hasDefinition('doctrine_mongodb')) {
+                $managers[] = new Reference('doctrine_mongodb');
+            }
+            if ($container->hasDefinition('doctrine')) {
+                $managers[] = new Reference('doctrine');
+            }
+            if ($container->hasDefinition('doctrine_phpcr')) {
+                $managers[] = new Reference('doctrine_phpcr');
+            }
+
+            $drivers[] = $container->getDefinition('vich_uploader.metadata_driver.annotation')
+                ->replaceArgument('$managerRegistryList', $managers);
         }
 
         if (\class_exists(Yaml::class)) {

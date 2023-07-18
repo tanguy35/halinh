@@ -25,6 +25,9 @@ class CleanListener extends BaseListener
         ];
     }
 
+    /**
+     * @param EventArgs|\Doctrine\ORM\Event\PreUpdateEventArgs $event
+     */
     public function preUpdate(EventArgs $event): void
     {
         $object = $this->adapter->getObjectFromArgs($event);

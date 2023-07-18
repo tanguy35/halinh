@@ -7,13 +7,14 @@ use League\Flysystem\FilesystemOperator;
 use League\Flysystem\MountManager;
 use Psr\Container\ContainerInterface;
 use Symfony\Component\HttpFoundation\File\Exception\CannotWriteFileException;
-use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\PropertyMapping;
 use Vich\UploaderBundle\Mapping\PropertyMappingFactory;
 
 /**
  * @author Markus Bachmann <markus.bachmann@bachi.biz>
  * @author Titouan Galopin <galopintitouan@gmail.com>
+ * @final
  */
 class FlysystemStorage extends AbstractStorage
 {
@@ -36,7 +37,7 @@ class FlysystemStorage extends AbstractStorage
         $this->registry = $registry;
     }
 
-    protected function doUpload(PropertyMapping $mapping, UploadedFile $file, ?string $dir, string $name): void
+    protected function doUpload(PropertyMapping $mapping, File $file, ?string $dir, string $name): void
     {
         $fs = $this->getFilesystem($mapping);
         $path = !empty($dir) ? $dir.'/'.$name : $name;

@@ -68,4 +68,12 @@ class MainController extends AbstractController
         return $this->render('main/mentions.html.twig');
     }
 
+    /**
+     * @Route("/galeries", name="galeries")
+     */
+    public function gallery(): Response
+    {
+        return $this->render('main/galleries.html.twig');
+    }
+
 }

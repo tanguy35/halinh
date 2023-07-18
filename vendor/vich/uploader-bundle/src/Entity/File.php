@@ -2,44 +2,29 @@
 
 namespace Vich\UploaderBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
-
-/**
- * @ORM\Embeddable
- */
 class File
 {
     /**
-     * @ORM\Column(name="name", nullable=true)
-     *
      * @var string
      */
     protected $name;
 
     /**
-     * @ORM\Column(name="original_name", nullable=true)
-     *
      * @var string
      */
     protected $originalName;
 
     /**
-     * @ORM\Column(name="mime_type", nullable=true)
-     *
      * @var string
      */
     protected $mimeType;
 
     /**
-     * @ORM\Column(name="size", type="integer", nullable=true)
-     *
      * @var int
      */
     protected $size;
 
     /**
-     * @ORM\Column(name="dimensions", type="simple_array", nullable=true)
-     *
      * @var array<int, int>
      */
     protected $dimensions;
@@ -92,5 +77,48 @@ class File
     public function setDimensions(?array $dimensions): void
     {
         $this->dimensions = $dimensions;
+    }
+
+    /**
+     * A simple shortcut to the image width.
+     * Similar to `$file->getDimensions()[0]`.
+     *
+     * @return int|null Returns `null` if dimensions array is itself null
+     */
+    public function getWidth(): ?int
+    {
+        return $this->dimensions[0] ?? null;
+    }
+
+    /**
+     * A simple shortcut to the image height.
+     * Similar to `$file->getDimensions()[1]`.
+     *
+     * @return int|null Returns `null` if dimensions array is itself null
+     */
+    public function getHeight(): ?int
+    {
+        return $this->dimensions[1] ?? null;
+    }
+
+    /**
+     * Format image dimensions for use with html (to avoid layout shifting).
+     *
+     * Usage in twig template:
+     * ```twig
+     * <img src="..." alt="..." {{ image.htmlDimensions|raw }}>
+     * <!-- Will render: -->
+     * <img src="..." alt="..." width="..." height="...">
+     * ```
+     *
+     * @return string|null Returns `null` if dimensions array is itself null
+     */
+    public function getHtmlDimensions(): ?string
+    {
+        if (null !== $this->dimensions) {
+            return \sprintf('width="%s" height="%s"', $this->getWidth(), $this->getHeight());
+        }
+
+        return null;
     }
 }

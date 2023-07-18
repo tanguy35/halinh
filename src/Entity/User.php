@@ -37,7 +37,6 @@ class User implements UserInterface
      */
     private $password;
 
-    private $roles;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -45,6 +44,8 @@ class User implements UserInterface
      * @Assert\Email( message = "Email '{{ value }}' non valide.")
      */
     private $email;
+
+    private $roles;
 
     public function getId(): ?int
     {

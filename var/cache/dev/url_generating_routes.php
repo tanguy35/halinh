@@ -22,6 +22,7 @@ return [
     'main_home' => [[], ['_controller' => 'App\\Controller\\MainController::index'], [], [['text', '/']], [], []],
     'detail' => [['id'], ['_controller' => 'App\\Controller\\MainController::detail'], [], [['variable', '/', '[^/]++', 'id', true], ['text', '/detail']], [], []],
     'mentions' => [[], ['_controller' => 'App\\Controller\\MainController::mentions'], [], [['text', '/mentions']], [], []],
+    'galeries' => [[], ['_controller' => 'App\\Controller\\MainController::gallery'], [], [['text', '/galeries']], [], []],
     'login' => [[], ['_controller' => 'App\\Controller\\SecurityController::login'], [], [['text', '/ginlo']], [], []],
     'logout' => [[], ['_controller' => 'App\\Controller\\SecurityController::logout'], [], [['text', '/logout']], [], []],
     'user_register' => [[], ['_controller' => 'App\\Controller\\UserController::register'], [], [['text', '/register030578']], [], []],

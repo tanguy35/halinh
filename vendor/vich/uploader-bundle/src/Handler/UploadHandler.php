@@ -6,6 +6,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Contracts\EventDispatcher\EventDispatcherInterface;
 use Vich\UploaderBundle\Event\Event;
 use Vich\UploaderBundle\Event\Events;
+use Vich\UploaderBundle\FileAbstraction\ReplacingFile;
 use Vich\UploaderBundle\Injector\FileInjectorInterface;
 use Vich\UploaderBundle\Mapping\PropertyMapping;
 use Vich\UploaderBundle\Mapping\PropertyMappingFactory;
@@ -15,6 +16,7 @@ use Vich\UploaderBundle\Storage\StorageInterface;
  * Upload handler.
  *
  * @author Kévin Gomez <contact@kevingomez.fr>
+ * @final
  */
 class UploadHandler extends AbstractHandler
 {
@@ -121,6 +123,6 @@ class UploadHandler extends AbstractHandler
     {
         $file = $mapping->getFile($obj);
 
-        return null !== $file && $file instanceof UploadedFile;
+        return $file instanceof UploadedFile || $file instanceof ReplacingFile;
     }
 }

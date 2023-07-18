@@ -3,6 +3,7 @@
 namespace Vich\UploaderBundle\Naming;
 
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use Vich\UploaderBundle\FileAbstraction\ReplacingFile;
 use Vich\UploaderBundle\Mapping\PropertyMapping;
 use Vich\UploaderBundle\Util\Transliterator;
 
@@ -10,6 +11,7 @@ use Vich\UploaderBundle\Util\Transliterator;
  * OrignameNamer.
  *
  * @author Ivan Borzenkov <ivan.borzenkov@gmail.com>
+ * @final
  */
 class OrignameNamer implements NamerInterface, ConfigurableInterface
 {
@@ -37,12 +39,9 @@ class OrignameNamer implements NamerInterface, ConfigurableInterface
         $this->transliterate = isset($options['transliterate']) ? (bool) $options['transliterate'] : $this->transliterate;
     }
 
-    /**
-     * {@inheritdoc}
-     */
     public function name($object, PropertyMapping $mapping): string
     {
-        /* @var $file UploadedFile */
+        /* @var $file UploadedFile|ReplacingFile */
         $file = $mapping->getFile($object);
         $name = $file->getClientOriginalName();
 

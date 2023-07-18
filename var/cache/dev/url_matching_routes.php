@@ -18,6 +18,7 @@ return [
         '/admin/categorie/new' => [[['_route' => 'categorie_new', '_controller' => 'App\\Controller\\CategoriesController::addCategorie'], null, null, null, false, false, null]],
         '/' => [[['_route' => 'main_home', '_controller' => 'App\\Controller\\MainController::index'], null, null, null, false, false, null]],
         '/mentions' => [[['_route' => 'mentions', '_controller' => 'App\\Controller\\MainController::mentions'], null, null, null, false, false, null]],
+        '/galeries' => [[['_route' => 'galeries', '_controller' => 'App\\Controller\\MainController::gallery'], null, null, null, false, false, null]],
         '/ginlo' => [[['_route' => 'login', '_controller' => 'App\\Controller\\SecurityController::login'], null, null, null, false, false, null]],
         '/logout' => [[['_route' => 'logout', '_controller' => 'App\\Controller\\SecurityController::logout'], null, ['GET' => 0], null, false, false, null]],
         '/register030578' => [[['_route' => 'user_register', '_controller' => 'App\\Controller\\UserController::register'], null, null, null, false, false, null]],

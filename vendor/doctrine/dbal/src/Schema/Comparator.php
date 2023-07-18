@@ -2,6 +2,7 @@
 
 namespace Doctrine\DBAL\Schema;
 
+use BadMethodCallException;
 use Doctrine\DBAL\Exception;
 use Doctrine\DBAL\Platforms\AbstractPlatform;
 use Doctrine\DBAL\Types;
@@ -16,32 +17,62 @@ use function array_unique;
 use function assert;
 use function count;
 use function get_class;
+use function sprintf;
 use function strtolower;
 
 /**
  * Compares two Schemas and return an instance of SchemaDiff.
+ *
+ * @method SchemaDiff compareSchemas(Schema $fromSchema, Schema $toSchema)
  */
 class Comparator
 {
-    /** @var AbstractPlatform|null */
-    private $platform;
+    private ?AbstractPlatform $platform = null;
 
-    /**
-     * @internal The comparator can be only instantiated by a schema manager.
-     */
+    /** @internal The comparator can be only instantiated by a schema manager. */
     public function __construct(?AbstractPlatform $platform = null)
     {
         if ($platform === null) {
             Deprecation::triggerIfCalledFromOutside(
                 'doctrine/dbal',
-                'https://github.com/doctrine/dbal/pull/4659',
+                'https://github.com/doctrine/dbal/pull/4746',
                 'Not passing a $platform to %s is deprecated.'
                     . ' Use AbstractSchemaManager::createComparator() to instantiate the comparator.',
-                __METHOD__
+                __METHOD__,
             );
         }
 
         $this->platform = $platform;
+    }
+
+    /** @param list<mixed> $args */
+    public function __call(string $method, array $args): SchemaDiff
+    {
+        if ($method !== 'compareSchemas') {
+            throw new BadMethodCallException(sprintf('Unknown method "%s"', $method));
+        }
+
+        return $this->doCompareSchemas(...$args);
+    }
+
+    /** @param list<mixed> $args */
+    public static function __callStatic(string $method, array $args): SchemaDiff
+    {
+        if ($method !== 'compareSchemas') {
+            throw new BadMethodCallException(sprintf('Unknown method "%s"', $method));
+        }
+
+        Deprecation::trigger(
+            'doctrine/dbal',
+            'https://github.com/doctrine/dbal/pull/4707',
+            'Calling %s::%s() statically is deprecated.',
+            self::class,
+            $method,
+        );
+
+        $comparator = new self();
+
+        return $comparator->doCompareSchemas(...$args);
     }
 
     /**
@@ -53,11 +84,10 @@ class Comparator
      *
      * @throws SchemaException
      */
-    public static function compareSchemas(
+    private function doCompareSchemas(
         Schema $fromSchema,
         Schema $toSchema
     ) {
-        $comparator       = new self();
         $diff             = new SchemaDiff();
         $diff->fromSchema = $fromSchema;
 
@@ -84,9 +114,9 @@ class Comparator
             if (! $fromSchema->hasTable($tableName)) {
                 $diff->newTables[$tableName] = $toSchema->getTable($tableName);
             } else {
-                $tableDifferences = $comparator->diffTable(
+                $tableDifferences = $this->diffTable(
                     $fromSchema->getTable($tableName),
-                    $toSchema->getTable($tableName)
+                    $toSchema->getTable($tableName),
                 );
 
                 if ($tableDifferences !== false) {
@@ -120,7 +150,13 @@ class Comparator
                 continue;
             }
 
-            $diff->orphanedForeignKeys = array_merge($diff->orphanedForeignKeys, $foreignKeysToTable[$tableName]);
+            foreach ($foreignKeysToTable[$tableName] as $foreignKey) {
+                if (isset($diff->removedTables[strtolower($foreignKey->getLocalTableName())])) {
+                    continue;
+                }
+
+                $diff->orphanedForeignKeys[] = $foreignKey;
+            }
 
             // deleting duplicated foreign keys present on both on the orphanedForeignKey
             // and the removedForeignKeys from changedTables
@@ -147,18 +183,18 @@ class Comparator
         foreach ($toSchema->getSequences() as $sequence) {
             $sequenceName = $sequence->getShortestName($toSchema->getName());
             if (! $fromSchema->hasSequence($sequenceName)) {
-                if (! $comparator->isAutoIncrementSequenceInSchema($fromSchema, $sequence)) {
+                if (! $this->isAutoIncrementSequenceInSchema($fromSchema, $sequence)) {
                     $diff->newSequences[] = $sequence;
                 }
             } else {
-                if ($comparator->diffSequence($sequence, $fromSchema->getSequence($sequenceName))) {
+                if ($this->diffSequence($sequence, $fromSchema->getSequence($sequenceName))) {
                     $diff->changedSequences[] = $toSchema->getSequence($sequenceName);
                 }
             }
         }
 
         foreach ($fromSchema->getSequences() as $sequence) {
-            if ($comparator->isAutoIncrementSequenceInSchema($toSchema, $sequence)) {
+            if ($this->isAutoIncrementSequenceInSchema($toSchema, $sequence)) {
                 continue;
             }
 
@@ -175,7 +211,7 @@ class Comparator
     }
 
     /**
-     * @deprecated Use non-static call to {@link compareSchemas()} instead.
+     * @deprecated Use non-static call to {@see compareSchemas()} instead.
      *
      * @return SchemaDiff
      *
@@ -186,7 +222,7 @@ class Comparator
         Deprecation::trigger(
             'doctrine/dbal',
             'https://github.com/doctrine/dbal/pull/4707',
-            'Method compare() is deprecated. Use a non-static call to compareSchemas() instead.'
+            'Method compare() is deprecated. Use a non-static call to compareSchemas() instead.',
         );
 
         return $this->compareSchemas($fromSchema, $toSchema);
@@ -207,9 +243,7 @@ class Comparator
         return false;
     }
 
-    /**
-     * @return bool
-     */
+    /** @return bool */
     public function diffSequence(Sequence $sequence1, Sequence $sequence2)
     {
         if ($sequence1->getAllocationSize() !== $sequence2->getAllocationSize()) {
@@ -273,7 +307,7 @@ class Comparator
                 $column->getName(),
                 $toColumn,
                 $changedProperties,
-                $column
+                $column,
             );
 
             $changes++;
@@ -373,7 +407,7 @@ class Comparator
             }
 
             [$removedColumn, $addedColumn] = $candidateColumns[0];
-            $removedColumnName             = strtolower($removedColumn->getName());
+            $removedColumnName             = $removedColumn->getName();
             $addedColumnName               = strtolower($addedColumn->getName());
 
             if (isset($tableDifferences->renamedColumns[$removedColumnName])) {
@@ -383,7 +417,7 @@ class Comparator
             $tableDifferences->renamedColumns[$removedColumnName] = $addedColumn;
             unset(
                 $tableDifferences->addedColumns[$addedColumnName],
-                $tableDifferences->removedColumns[$removedColumnName]
+                $tableDifferences->removedColumns[strtolower($removedColumnName)],
             );
         }
     }
@@ -428,14 +462,12 @@ class Comparator
             $tableDifferences->renamedIndexes[$removedIndexName] = $addedIndex;
             unset(
                 $tableDifferences->addedIndexes[$addedIndexName],
-                $tableDifferences->removedIndexes[$removedIndexName]
+                $tableDifferences->removedIndexes[$removedIndexName],
             );
         }
     }
 
-    /**
-     * @return bool
-     */
+    /** @return bool */
     public function diffForeignKey(ForeignKeyConstraint $key1, ForeignKeyConstraint $key2)
     {
         if (
